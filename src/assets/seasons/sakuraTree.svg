@@ -1,0 +1,152 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1920" width="100%" height="100%">
+  <defs>
+    <!-- Trunk & Branch Gradient -->
+    <linearGradient id="trunkGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2d1e18" />
+      <stop offset="50%" stop-color="#1a100c" />
+      <stop offset="100%" stop-color="#0d0806" />
+    </linearGradient>
+
+    <!-- Branch Highlight -->
+    <linearGradient id="branchHighlight" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#5a4036" />
+      <stop offset="100%" stop-color="#1a100c" />
+    </linearGradient>
+
+    <!-- Petal Gradient -->
+    <radialGradient id="petalGrad" cx="30%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="40%" stop-color="#ffccd5" />
+      <stop offset="85%" stop-color="#ffb3c1" />
+      <stop offset="100%" stop-color="#e07a5f" />
+    </radialGradient>
+
+    <!-- Deep Blossom Gradient -->
+    <radialGradient id="petalDarkGrad" cx="40%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#ffccd5" />
+      <stop offset="70%" stop-color="#ff85a1" />
+      <stop offset="100%" stop-color="#b5486d" />
+    </radialGradient>
+
+    <!-- Reusable 5-Petal Sakura Flower Symbol -->
+    <g id="sakuraFlower">
+      <!-- Petal 1 -->
+      <path d="M0,0 C-12,-25 -22,-35 -10,-50 C-2,-62 0,-48 0,-42 C0,-48 2,-62 10,-50 C22,-35 12,-25 0,0 Z" fill="url(#petalGrad)" transform="rotate(0)" />
+      <!-- Petal 2 -->
+      <path d="M0,0 C-12,-25 -22,-35 -10,-50 C-2,-62 0,-48 0,-42 C0,-48 2,-62 10,-50 C22,-35 12,-25 0,0 Z" fill="url(#petalGrad)" transform="rotate(72)" />
+      <!-- Petal 3 -->
+      <path d="M0,0 C-12,-25 -22,-35 -10,-50 C-2,-62 0,-48 0,-42 C0,-48 2,-62 10,-50 C22,-35 12,-25 0,0 Z" fill="url(#petalGrad)" transform="rotate(144)" />
+      <!-- Petal 4 -->
+      <path d="M0,0 C-12,-25 -22,-35 -10,-50 C-2,-62 0,-48 0,-42 C0,-48 2,-62 10,-50 C22,-35 12,-25 0,0 Z" fill="url(#petalGrad)" transform="rotate(216)" />
+      <!-- Petal 5 -->
+      <path d="M0,0 C-12,-25 -22,-35 -10,-50 C-2,-62 0,-48 0,-42 C0,-48 2,-62 10,-50 C22,-35 12,-25 0,0 Z" fill="url(#petalGrad)" transform="rotate(288)" />
+      <!-- Center Stamen Detail -->
+      <circle cx="0" cy="0" r="6" fill="#c9184a" />
+      <path d="M0,0 L-4,-12 M0,0 L4,-12 M0,0 L-10,-5 M0,0 L10,-5 M0,0 L-8,8 M0,0 L8,8 M0,0 L0,12" stroke="#ff4d6d" stroke-width="1.5" stroke-linecap="round" />
+      <circle cx="-4" cy="-12" r="1.5" fill="#ffb703" />
+      <circle cx="4" cy="-12" r="1.5" fill="#ffb703" />
+      <circle cx="-10" cy="-5" r="1.5" fill="#ffb703" />
+      <circle cx="10" cy="-5" r="1.5" fill="#ffb703" />
+      <circle cx="-8" cy="8" r="1.5" fill="#ffb703" />
+      <circle cx="8" cy="8" r="1.5" fill="#ffb703" />
+      <circle cx="0" cy="12" r="1.5" fill="#ffb703" />
+    </g>
+
+    <!-- Reusable Blossom Cluster -->
+    <g id="flowerCluster">
+      <use href="#sakuraFlower" transform="translate(0, 0) scale(1.1) rotate(12)" />
+      <use href="#sakuraFlower" transform="translate(-25, -20) scale(0.85) rotate(45)" />
+      <use href="#sakuraFlower" transform="translate(30, -15) scale(0.9) rotate(-30)" />
+      <use href="#sakuraFlower" transform="translate(10, -40) scale(0.75) rotate(85)" />
+      <use href="#sakuraFlower" transform="translate(-20, 20) scale(0.8) rotate(190)" />
+    </g>
+  </defs>
+
+  <!-- MAIN TREE TRUNK & BRANCHES (ORIGINATING FROM LEFT EDGE) -->
+  <g id="treeStructure">
+    <!-- Main Thick Trunk entering from Left Edge -->
+    <path d="M -100,1950 
+             C -20,1600 -10,1200 80,900 
+             C 150,660 110,400 -50,-50 
+             L -200,-50 
+             L -200,1950 Z" 
+          fill="url(#trunkGrad)" />
+
+    <!-- Trunk Bark Texture Lines -->
+    <path d="M 10,1400 C 50,1150 100,950 80,900" stroke="url(#branchHighlight)" stroke-width="8" fill="none" opacity="0.6" />
+    <path d="M -30,1700 C 10,1400 60,1100 110,850" stroke="url(#branchHighlight)" stroke-width="14" fill="none" opacity="0.4" />
+
+    <!-- Major Branch 1 (Extending Low-Mid Right) -->
+    <path d="M 60,950 
+             C 180,880 320,850 480,890 
+             C 580,915 680,900 760,860
+             C 740,880 640,940 470,920
+             C 300,900 160,930 40,1040 Z" 
+          fill="url(#trunkGrad)" />
+
+    <!-- Sub-branches off Major Branch 1 -->
+    <path d="M 320,865 C 380,800 460,760 550,750 C 480,780 400,810 340,875 Z" fill="url(#trunkGrad)" />
+    <path d="M 520,895 C 600,940 700,970 800,960 C 710,980 590,960 500,910 Z" fill="url(#trunkGrad)" />
+
+    <!-- Major Branch 2 (Extending Upper Right) -->
+    <path d="M 110,720 
+             C 250,580 420,450 620,380 
+             C 740,340 850,310 920,280
+             C 830,320 710,360 590,410
+             C 400,480 220,620 80,780 Z" 
+          fill="url(#trunkGrad)" />
+
+    <!-- Sub-branches off Major Branch 2 -->
+    <path d="M 350,510 C 450,400 580,310 700,250 C 580,330 460,430 320,530 Z" fill="url(#trunkGrad)" />
+    <path d="M 580,390 C 680,320 800,240 880,140 C 780,230 670,300 550,380 Z" fill="url(#trunkGrad)" />
+    <path d="M 720,340 C 820,350 900,380 980,420 C 890,380 800,360 700,350 Z" fill="url(#trunkGrad)" />
+
+    <!-- Top Left Arching Branch -->
+    <path d="M 30,350 C 120,220 280,120 450,50 C 300,100 150,200 0,360 Z" fill="url(#trunkGrad)" />
+  </g>
+
+  <!-- BLOSSOM CLUSTERS PLACED ALONG BRANCHES -->
+  <g id="allBlossoms">
+    <!-- Top Branch Blossoms -->
+    <use href="#flowerCluster" transform="translate(450, 50) scale(1.2)" />
+    <use href="#flowerCluster" transform="translate(350, 90) scale(0.9) rotate(40)" />
+    <use href="#flowerCluster" transform="translate(250, 150) scale(1.1) rotate(-20)" />
+
+    <!-- Upper Right Branch Blossoms -->
+    <use href="#flowerCluster" transform="translate(900, 130) scale(1.3) rotate(15)" />
+    <use href="#flowerCluster" transform="translate(820, 180) scale(1) rotate(-45)" />
+    <use href="#flowerCluster" transform="translate(700, 240) scale(1.2) rotate(60)" />
+    <use href="#flowerCluster" transform="translate(580, 310) scale(1.1) rotate(-10)" />
+    <use href="#flowerCluster" transform="translate(470, 390) scale(1.4) rotate(25)" />
+
+    <!-- Mid Branch Blossoms -->
+    <use href="#flowerCluster" transform="translate(950, 270) scale(1.1) rotate(100)" />
+    <use href="#flowerCluster" transform="translate(850, 300) scale(1.2) rotate(-15)" />
+    <use href="#flowerCluster" transform="translate(750, 340) scale(0.9) rotate(35)" />
+    <use href="#flowerCluster" transform="translate(960, 410) scale(1) rotate(-70)" />
+
+    <!-- Lower Branch Blossoms -->
+    <use href="#flowerCluster" transform="translate(530, 740) scale(1.2) rotate(15)" />
+    <use href="#flowerCluster" transform="translate(620, 770) scale(1) rotate(-40)" />
+    <use href="#flowerCluster" transform="translate(760, 850) scale(1.3) rotate(45)" />
+    <use href="#flowerCluster" transform="translate(810, 950) scale(1.1) rotate(-80)" />
+    <use href="#flowerCluster" transform="translate(680, 960) scale(0.9) rotate(20)" />
+    <use href="#flowerCluster" transform="translate(480, 890) scale(1.2) rotate(-10)" />
+
+    <!-- Loose Background Depth Blossoms (Smaller, Darker) -->
+    <use href="#sakuraFlower" transform="translate(620, 220) scale(0.5) rotate(12)" fill="url(#petalDarkGrad)" />
+    <use href="#sakuraFlower" transform="translate(780, 210) scale(0.6) rotate(82)" fill="url(#petalDarkGrad)" />
+    <use href="#sakuraFlower" transform="translate(400, 450) scale(0.5) rotate(42)" fill="url(#petalDarkGrad)" />
+    <use href="#sakuraFlower" transform="translate(880, 360) scale(0.55) rotate(112)" fill="url(#petalDarkGrad)" />
+    <use href="#sakuraFlower" transform="translate(580, 850) scale(0.6) rotate(19)" fill="url(#petalDarkGrad)" />
+  </g>
+
+  <!-- FALLING PETALS IN WIND -->
+  <g id="fallingPetals" opacity="0.85">
+    <path d="M0,0 C-6,-12 -11,-17 -5,-25 C-1,-31 0,-24 0,-21 C0,-24 1,-31 5,-25 C11,-17 6,-12 0,0 Z" fill="url(#petalGrad)" transform="translate(500, 600) scale(0.6) rotate(45)" />
+    <path d="M0,0 C-6,-12 -11,-17 -5,-25 C-1,-31 0,-24 0,-21 C0,-24 1,-31 5,-25 C11,-17 6,-12 0,0 Z" fill="url(#petalGrad)" transform="translate(650, 720) scale(0.8) rotate(110)" />
+    <path d="M0,0 C-6,-12 -11,-17 -5,-25 C-1,-31 0,-24 0,-21 C0,-24 1,-31 5,-25 C11,-17 6,-12 0,0 Z" fill="url(#petalGrad)" transform="translate(420, 1050) scale(0.5) rotate(15)" />
+    <path d="M0,0 C-6,-12 -11,-17 -5,-25 C-1,-31 0,-24 0,-21 C0,-24 1,-31 5,-25 C11,-17 6,-12 0,0 Z" fill="url(#petalGrad)" transform="translate(780, 1150) scale(0.7) rotate(200)" />
+    <path d="M0,0 C-6,-12 -11,-17 -5,-25 C-1,-31 0,-24 0,-21 C0,-24 1,-31 5,-25 C11,-17 6,-12 0,0 Z" fill="url(#petalGrad)" transform="translate(880, 680) scale(0.65) rotate(80)" />
+  </g>
+</svg>

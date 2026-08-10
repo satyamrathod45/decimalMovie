@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <!-- Sun Rays -->
+  <g fill="none" stroke="#FB8500" stroke-width="4" stroke-linecap="round">
+    <line x1="85" y1="18" x2="85" y2="6" />
+    <line x1="125" y1="32" x2="135" y2="20" />
+    <line x1="145" y1="72" x2="158" y2="72" />
+    <line x1="138" y1="112" x2="148" y2="122" />
+    <line x1="32" y1="42" x2="20" y2="32" />
+    <line x1="22" y1="82" x2="8" y2="82" />
+  </g>
+
+  <!-- Sun Body -->
+  <circle cx="85" cy="72" r="42" fill="#FFB703" stroke="#FB8500" stroke-width="4" />
+  
+  <!-- Sun Face -->
+  <circle cx="70" cy="62" r="4" fill="#023047" />
+  <circle cx="100" cy="62" r="4" fill="#023047" />
+  <path d="M 73 78 Q 85 90 97 78" fill="none" stroke="#023047" stroke-width="3.5" stroke-linecap="round" />
+  <ellipse cx="63" cy="70" rx="5" ry="3" fill="#FB8500" opacity="0.6" />
+  <ellipse cx="107" cy="70" rx="5" ry="3" fill="#FB8500" opacity="0.6" />
+
+  <!-- Fluffy Cloud -->
+  <path d="M 50 145 
+           A 22 22 0 0 1 75 112 
+           A 28 28 0 0 1 125 108 
+           A 24 24 0 0 1 160 132 
+           A 18 18 0 0 1 155 160 
+           L 50 160 
+           A 15 15 0 0 1 50 145 Z" 
+        fill="#F0F9FF" stroke="#38BDF8" stroke-width="4" stroke-linejoin="round" />
+  
+  <!-- Cloud Face -->
+  <circle cx="95" cy="138" r="3" fill="#023047" />
+  <circle cx="120" cy="138" r="3" fill="#023047" />
+  <path d="M 102 145 Q 107.5 150 113 145" fill="none" stroke="#023047" stroke-width="2.5" stroke-linecap="round" />
+  <ellipse cx="88" cy="142" rx="4" ry="2.5" fill="#F472B6" opacity="0.7" />
+  <ellipse cx="127" cy="142" rx="4" ry="2.5" fill="#F472B6" opacity="0.7" />
+</svg>
