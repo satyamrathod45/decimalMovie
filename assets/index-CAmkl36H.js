@@ -14,81 +14,239 @@ Error generating stack: `+e.message+`
             ${_}px !important;
             ${v}px !important;
           }
-        `),()=>{s.current?.removeAttribute(`data-motion-pop-id`),b.contains(y)&&b.removeChild(y)}},[t]),(0,V.jsx)(Dc,{isPresent:t,childRef:s,sizeRef:c,pop:a,children:a===!1?e:_.cloneElement(e,{ref:u})})}var kc=({children:e,initial:t,isPresent:n,onExitComplete:r,custom:i,presenceAffectsLayout:a,mode:o,anchorX:s,anchorY:c,root:l})=>{let u=S(Ac),d=(0,_.useId)(),f=(0,_.useRef)(n),p=(0,_.useRef)(r);C(()=>{f.current=n,p.current=r});let m=!0,h=(0,_.useMemo)(()=>(m=!1,{id:d,initial:t,isPresent:n,custom:i,onExitComplete:e=>{u.set(e,!0);for(let e of u.values())if(!e)return;r&&r()},register:e=>(u.set(e,!1),()=>{u.delete(e),!f.current&&!u.size&&p.current?.()})}),[n,u,r]);return a&&m&&(h={...h}),(0,_.useMemo)(()=>{u.forEach((e,t)=>u.set(t,!1))},[n]),_.useEffect(()=>{!n&&!u.size&&r&&r()},[n]),e=(0,V.jsx)(Oc,{pop:o===`popLayout`,isPresent:n,anchorX:s,anchorY:c,root:l,children:e}),(0,V.jsx)(w.Provider,{value:h,children:e})};function Ac(){return new Map}function jc(e=!0){let t=(0,_.useContext)(w);if(t===null)return[!0,null];let{isPresent:n,onExitComplete:r,register:i}=t,a=(0,_.useId)();(0,_.useEffect)(()=>{if(e)return i(a)},[e]);let o=(0,_.useCallback)(()=>e&&r&&r(a),[a,r,e]);return!n&&r?[!1,o]:[!0]}var Mc=e=>e.key||``;function Nc(e){let t=[];return _.Children.forEach(e,e=>{(0,_.isValidElement)(e)&&t.push(e)}),t}var Pc=({children:e,custom:t,initial:n=!0,onExitComplete:r,presenceAffectsLayout:i=!0,mode:a=`sync`,propagate:o=!1,anchorX:s=`left`,anchorY:c=`top`,root:l})=>{let[u,d]=jc(o),f=(0,_.useMemo)(()=>Nc(e),[e]),p=o&&!u?[]:f.map(Mc),m=(0,_.useRef)(!0),h=(0,_.useRef)(f),g=S(()=>new Map),v=(0,_.useRef)(new Set),[y,b]=(0,_.useState)(f),[w,ee]=(0,_.useState)(f);C(()=>{o&&!u&&!w.length&&d?.()},[u,o,w.length,d]),C(()=>{m.current=!1,h.current=f;for(let e=0;e<w.length;e++){let t=Mc(w[e]);p.includes(t)?(g.delete(t),v.current.delete(t)):g.get(t)!==!0&&g.set(t,!1)}},[w,p.length,p.join(`-`)]);let te=[];if(f!==y){let e=[...f];for(let t=0;t<w.length;t++){let n=w[t],r=Mc(n);p.includes(r)||(e.splice(t,0,n),te.push(n))}return a===`wait`&&te.length&&(e=te),ee(Nc(e)),b(f),null}let{forceRender:ne}=(0,_.useContext)(x);return(0,V.jsx)(V.Fragment,{children:w.map(e=>{let _=Mc(e),y=o&&!u?!1:f===w||p.includes(_);return(0,V.jsx)(kc,{isPresent:y,initial:!m.current||n?void 0:!1,custom:t,presenceAffectsLayout:i,mode:a,root:l,onExitComplete:y?void 0:()=>{if(v.current.has(_))return;if(g.has(_))v.current.add(_),g.set(_,!0);else return;let e=!0;g.forEach(t=>{t||(e=!1)}),e&&(ne?.(),ee(h.current),o&&d?.(),r&&r())},anchorX:s,anchorY:c,children:e},_)})})},Fc=(0,_.createContext)({strict:!1}),Ic={animation:[`animate`,`variants`,`whileHover`,`whileTap`,`exit`,`whileInView`,`whileFocus`,`whileDrag`],exit:[`exit`],drag:[`drag`,`dragControls`],focus:[`whileFocus`],hover:[`whileHover`,`onHoverStart`,`onHoverEnd`],tap:[`whileTap`,`onTap`,`onTapStart`,`onTapCancel`],pan:[`onPan`,`onPanStart`,`onPanSessionStart`,`onPanEnd`],inView:[`whileInView`,`onViewportEnter`,`onViewportLeave`],layout:[`layout`,`layoutId`]},Lc=!1;function Rc(){if(Lc)return;let e={};for(let t in Ic)e[t]={isEnabled:e=>Ic[t].some(t=>!!e[t])};Ga(e),Lc=!0}function zc(){return Rc(),Ka()}function H(e){let t=zc();for(let n in e)t[n]={...t[n],...e[n]};Ga(t)}var Bc=(0,_.createContext)({});function Vc(e,t){if(Ia(e)){let{initial:t,animate:n}=e;return{initial:t===!1||Na(t)?t:void 0,animate:Na(n)?n:void 0}}return e.inherit===!1?{}:t}function Hc(e){let{initial:t,animate:n}=Vc(e,(0,_.useContext)(Bc));return(0,_.useMemo)(()=>({initial:t,animate:n}),[Uc(t),Uc(n)])}function Uc(e){return Array.isArray(e)?e.join(` `):e}var Wc=()=>({style:{},transform:{},transformOrigin:{},vars:{}});function Gc(e,t,n){for(let r in t)!oi(t[r])&&!wo(r,n)&&(e[r]=t[r])}function Kc({transformTemplate:e},t){return(0,_.useMemo)(()=>{let n=Wc();return yo(n,t,e),Object.assign({},n.vars,n.style)},[t])}function qc(e,t){let n=e.style||{},r={};return Gc(r,n,e),Object.assign(r,Kc(e,t)),r}function Jc(e,t){let n={},r=qc(e,t);return e.drag&&e.dragListener!==!1&&(n.draggable=!1,r.userSelect=r.WebkitUserSelect=r.WebkitTouchCallout=`none`,r.touchAction=e.drag===!0?`none`:`pan-${e.drag===`x`?`y`:`x`}`),e.tabIndex===void 0&&(e.onTap||e.onTapStart||e.whileTap)&&(n.tabIndex=0),n.style=r,n}var Yc=()=>({...Wc(),attrs:{}});function Xc(e,t,n,r){let i=(0,_.useMemo)(()=>{let n=Yc();return Mo(n,t,Po(r),e.transformTemplate,e.style),{...n.attrs,style:{...n.style}}},[t]);if(e.style){let t={};Gc(t,e.style,e),i.style={...t,...i.style}}return i}var Zc=new Set(`animate.exit.variants.initial.style.values.variants.transition.transformTemplate.custom.inherit.onBeforeLayoutMeasure.onAnimationStart.onAnimationComplete.onUpdate.onDragStart.onDrag.onDragEnd.onMeasureDragConstraints.onDirectionLock.onDragTransitionEnd._dragX._dragY.onHoverStart.onHoverEnd.onViewportEnter.onViewportLeave.globalTapTarget.propagate.ignoreStrict.viewport`.split(`.`));function Qc(e){return e.startsWith(`while`)||e.startsWith(`drag`)&&e!==`draggable`||e.startsWith(`layout`)||e.startsWith(`onTap`)||e.startsWith(`onPan`)||e.startsWith(`onLayout`)||Zc.has(e)}function $c(e,t){return e.startsWith(`on`)?!Qc(e):t?.(e)??!Qc(e)}function el(e,t,n,r){let i={};for(let a in e)(a!==`values`||typeof e.values!=`object`)&&(oi(e[a])||($c(a,r)||n===!0&&Qc(a)||!t&&!Qc(a)||e.draggable&&a.startsWith(`onDrag`))&&(i[a]=e[a]));return i}var tl=[`animate`,`circle`,`defs`,`desc`,`ellipse`,`g`,`image`,`line`,`filter`,`marker`,`mask`,`metadata`,`path`,`pattern`,`polygon`,`polyline`,`rect`,`stop`,`switch`,`symbol`,`svg`,`text`,`tspan`,`use`,`view`];function nl(e){return typeof e!=`string`||e.includes(`-`)?!1:!!(tl.indexOf(e)>-1||/[A-Z]/u.test(e))}function rl(e,t,n,{latestValues:r},i,a=!1,o,s){let c=(o??nl(e)?Xc:Jc)(t,r,i,e),l=el(t,typeof e==`string`,a,s),u=e===_.Fragment?{}:{...l,...c,ref:n},{children:d}=t,f=(0,_.useMemo)(()=>oi(d)?d.get():d,[d]);return(0,_.createElement)(e,{...u,children:f})}function il({scrapeMotionValuesFromProps:e,createRenderState:t},n,r,i){return{latestValues:al(n,r,i,e),renderState:t()}}function al(e,t,n,r){let i={},a=r(e,{});for(let e in a)i[e]=Rs(a[e]);let{initial:o,animate:s}=e,c=Ia(e),l=La(e);t&&l&&!c&&e.inherit!==!1&&(o===void 0&&(o=t.initial),s===void 0&&(s=t.animate));let u=n?n.initial===!1:!1;u||=o===!1;let d=u?s:o;if(d&&typeof d!=`boolean`&&!Ma(d)){let t=Array.isArray(d)?d:[d];for(let n=0;n<t.length;n++){let r=$r(e,t[n]);if(r){let{transitionEnd:e,transition:t,...n}=r;for(let e in n){let t=n[e];if(Array.isArray(t)){let e=u?t.length-1:0;t=t[e]}t!==null&&(i[e]=t)}for(let t in e)i[t]=e[t]}}}return i}var ol=e=>(t,n)=>{let r=(0,_.useContext)(Bc),i=(0,_.useContext)(w),a=()=>il(e,t,r,i);return n?a():S(a)},sl=ol({scrapeMotionValuesFromProps:To,createRenderState:Wc}),cl=ol({scrapeMotionValuesFromProps:Io,createRenderState:Yc}),ll=Symbol.for(`motionComponentSymbol`);function U(e,t,n){let r=(0,_.useRef)(n);(0,_.useInsertionEffect)(()=>{r.current=n});let i=(0,_.useRef)(null);return(0,_.useCallback)(n=>{n&&e.onMount?.(n),t&&(n?t.mount(n):t.unmount());let a=r.current;if(typeof a==`function`){if(n){let e=a(n);typeof e==`function`&&(i.current=e)}else i.current?(i.current(),i.current=null):a(n)}else a&&(a.current=n)},[t])}var ul=(0,_.createContext)({});function dl(e){return e&&typeof e==`object`&&Object.prototype.hasOwnProperty.call(e,`current`)}function fl(e,t,n,r,i,a){let{visualElement:o}=(0,_.useContext)(Bc),s=(0,_.useContext)(Fc),c=(0,_.useContext)(w),l=(0,_.useContext)(Cc),u=l.reducedMotion,d=l.skipAnimations,f=(0,_.useRef)(null),p=(0,_.useRef)(!1);r||=s.renderer,!f.current&&r&&(f.current=r(e,{visualState:t,parent:o,props:n,presenceContext:c,blockInitialAnimation:c?c.initial===!1:!1,reducedMotionConfig:u,skipAnimations:d,isSVG:a}),p.current&&f.current&&(f.current.manuallyAnimateOnMount=!0));let m=f.current,h=(0,_.useContext)(ul);m&&!m.projection&&i&&(m.type===`html`||m.type===`svg`)&&pl(f.current,n,i,h);let g=(0,_.useRef)(!1);(0,_.useInsertionEffect)(()=>{m&&g.current&&m.update(n,c)});let v=n[ui],y=(0,_.useRef)(!!v&&typeof window<`u`&&!window.MotionHandoffIsComplete?.(v)&&window.MotionHasOptimisedAnimation?.(v));return C(()=>{p.current=!0,m&&(g.current=!0,window.MotionIsMounted=!0,m.updateFeatures(),m.scheduleRenderMicrotask(),y.current&&m.animationState&&m.animationState.animateChanges())}),(0,_.useEffect)(()=>{m&&(!y.current&&m.animationState&&m.animationState.animateChanges(),y.current&&=(queueMicrotask(()=>{window.MotionHandoffMarkAsComplete?.(v)}),!1),m.enteringChildren=void 0)}),m}function pl(e,t,n,r){let{layoutId:i,layout:a,drag:o,dragConstraints:s,layoutScroll:c,layoutRoot:l,layoutAnchor:u,layoutCrossfade:d}=t;e.projection=new n(e.latestValues,t[`data-framer-portal-id`]?void 0:ml(e.parent)),e.projection.setOptions({layoutId:i,layout:a,alwaysMeasureLayout:!!o||s&&dl(s),visualElement:e,animationType:typeof a==`string`?a:`both`,initialPromotionConfig:r,crossfade:d,layoutScroll:c,layoutRoot:l,layoutAnchor:u})}function ml(e){if(e)return e.options.allowProjection===!1?ml(e.parent):e.projection}function hl(e,{forwardMotionProps:t=!1,type:n}={},r,i){r&&H(r);let a=n?n===`svg`:nl(e),o=a?cl:sl;function s(n,s){let c,l={...(0,_.useContext)(Cc),...n,layoutId:gl(n)},{isStatic:u,isValidProp:d}=l,f=Hc(n),p=o(n,u);if(!u&&typeof window<`u`){_l(l,r);let t=vl(l);c=t.MeasureLayout,f.visualElement=fl(e,p,l,i,t.ProjectionNode,a)}return(0,V.jsxs)(Bc.Provider,{value:f,children:[c&&f.visualElement?(0,V.jsx)(c,{visualElement:f.visualElement,...l}):null,rl(e,n,U(p,f.visualElement,s),p,u,t,a,d)]})}s.displayName=`motion.${typeof e==`string`?e:`create(${e.displayName??e.name??``})`}`;let c=(0,_.forwardRef)(s);return c[ll]=e,c}function gl({layoutId:e}){let t=(0,_.useContext)(x).id;return t&&e!==void 0?t+`-`+e:e}function _l(e,t){(0,_.useContext)(Fc).strict}function vl(e){let{drag:t,layout:n}=zc();if(!t&&!n)return{};let r={...t,...n};return{MeasureLayout:t?.isEnabled(e)||n?.isEnabled(e)?r.MeasureLayout:void 0,ProjectionNode:r.ProjectionNode}}function yl(e,t){if(typeof Proxy>`u`)return hl;let n=new Map,r=(n,r)=>hl(n,r,e,t);return new Proxy((e,t)=>r(e,t),{get:(i,a)=>a===`create`?r:(n.has(a)||n.set(a,hl(a,void 0,e,t)),n.get(a))})}var bl=(e,t)=>t.isSVG??nl(e)?new Lo(t):new Do(t,{allowProjection:e!==_.Fragment}),xl=class extends Ya{constructor(e){super(e),e.animationState||=Wo(e)}updateAnimationControlsSubscription(){let{animate:e}=this.node.getProps();Ma(e)&&(this.unmountControls=e.subscribe(this.node))}mount(){this.updateAnimationControlsSubscription()}update(){let{animate:e}=this.node.getProps(),{animate:t}=this.node.prevProps||{};e!==t&&this.updateAnimationControlsSubscription()}unmount(){this.node.animationState.reset(),this.unmountControls?.()}},Sl=0,Cl={animation:{Feature:xl},exit:{Feature:class extends Ya{constructor(){super(...arguments),this.id=Sl++,this.isExitComplete=!1}update(){if(!this.node.presenceContext)return;let{isPresent:e,onExitComplete:t}=this.node.presenceContext,{isPresent:n}=this.node.prevPresenceContext||{};if(!this.node.animationState||e===n)return;if(e&&n===!1){if(this.isExitComplete){let{initial:e,custom:t}=this.node.getProps();if(typeof e==`string`||typeof e==`object`&&e&&!Array.isArray(e)){let n=ei(this.node,e,t);if(n){let{transition:e,transitionEnd:t,...r}=n;for(let e in r)this.node.getValue(e)?.jump(r[e])}}this.node.animationState.reset(),this.node.animationState.animateChanges()}else this.node.animationState.setActive(`exit`,!1);this.isExitComplete=!1;return}let r=this.node.animationState.setActive(`exit`,!e);t&&!e&&r.then(()=>{this.isExitComplete=!0,t(this.id)})}mount(){let{register:e,onExitComplete:t}=this.node.presenceContext||{};t&&t(this.id),e&&(this.unmount=e(this.id))}unmount(){}}}};function wl(e){return{point:{x:e.pageX,y:e.pageY}}}var Tl=e=>t=>Ki(t)&&e(t,wl(t));function El(e,t,n,r){return Ps(e,t,Tl(n),r)}var Dl=({current:e})=>e?e.ownerDocument.defaultView:null,Ol=(e,t)=>Math.abs(e-t);function kl(e,t){let n=Ol(e.x,t.x),r=Ol(e.y,t.y);return Math.sqrt(n**2+r**2)}var Al=new Set([`auto`,`scroll`]),jl=class{constructor(e,t,{transformPagePoint:n,contextWindow:r=window,dragSnapToOrigin:i=!1,distanceThreshold:a=3,element:o}={}){if(this.startEvent=null,this.lastMoveEvent=null,this.lastMoveEventInfo=null,this.lastRawMoveEventInfo=null,this.handlers={},this.contextWindow=window,this.scrollPositions=new Map,this.removeScrollListeners=null,this.onElementScroll=e=>{this.handleScroll(e.target)},this.onWindowScroll=()=>{this.handleScroll(window)},this.updatePoint=()=>{if(!(this.lastMoveEvent&&this.lastMoveEventInfo))return;this.lastRawMoveEventInfo&&(this.lastMoveEventInfo=Ml(this.lastRawMoveEventInfo,this.transformPagePoint));let e=Pl(this.lastMoveEventInfo,this.history),t=this.startEvent!==null,n=kl(e.offset,{x:0,y:0})>=this.distanceThreshold;if(!t&&!n)return;let{point:r}=e,{timestamp:i}=Re;this.history.push({...r,timestamp:i});let{onStart:a,onMove:o}=this.handlers;t||(a&&a(this.lastMoveEvent,e),this.startEvent=this.lastMoveEvent),o&&o(this.lastMoveEvent,e)},this.handlePointerMove=(e,t)=>{this.lastMoveEvent=e,this.lastRawMoveEventInfo=t,this.lastMoveEventInfo=Ml(t,this.transformPagePoint),k.update(this.updatePoint,!0)},this.handlePointerUp=(e,t)=>{this.end();let{onEnd:n,onSessionEnd:r,resumeAnimation:i}=this.handlers;if((this.dragSnapToOrigin||!this.startEvent)&&i&&i(),!(this.lastMoveEvent&&this.lastMoveEventInfo))return;let a=Pl(e.type===`pointercancel`?this.lastMoveEventInfo:Ml(t,this.transformPagePoint),this.history);this.startEvent&&n&&n(e,a),r&&r(e,a)},!Ki(e))return;this.dragSnapToOrigin=i,this.handlers=t,this.transformPagePoint=n,this.distanceThreshold=a,this.contextWindow=r||window;let s=Ml(wl(e),this.transformPagePoint),{point:c}=s,{timestamp:l}=Re;this.history=[{...c,timestamp:l}];let{onSessionStart:u}=t;u&&u(e,Pl(s,this.history));let d={passive:!0,capture:!0};this.removeListeners=ce(El(this.contextWindow,`pointermove`,this.handlePointerMove,d),El(this.contextWindow,`pointerup`,this.handlePointerUp,d),El(this.contextWindow,`pointercancel`,this.handlePointerUp,d)),o&&this.startScrollTracking(o)}startScrollTracking(e){let t=e.parentElement;for(;t;){let e=getComputedStyle(t);(Al.has(e.overflowX)||Al.has(e.overflowY))&&this.scrollPositions.set(t,{x:t.scrollLeft,y:t.scrollTop}),t=t.parentElement}this.scrollPositions.set(window,{x:window.scrollX,y:window.scrollY}),window.addEventListener(`scroll`,this.onElementScroll,{capture:!0}),window.addEventListener(`scroll`,this.onWindowScroll),this.removeScrollListeners=()=>{window.removeEventListener(`scroll`,this.onElementScroll,{capture:!0}),window.removeEventListener(`scroll`,this.onWindowScroll)}}handleScroll(e){let t=this.scrollPositions.get(e);if(!t)return;let n=e===window,r=n?{x:window.scrollX,y:window.scrollY}:{x:e.scrollLeft,y:e.scrollTop},i={x:r.x-t.x,y:r.y-t.y};(i.x!==0||i.y!==0)&&(n?this.lastMoveEventInfo&&(this.lastMoveEventInfo.point.x+=i.x,this.lastMoveEventInfo.point.y+=i.y):this.history.length>0&&(this.history[0].x-=i.x,this.history[0].y-=i.y),this.scrollPositions.set(e,r),k.update(this.updatePoint,!0))}updateHandlers(e){this.handlers=e}end(){this.removeListeners&&this.removeListeners(),this.removeScrollListeners&&this.removeScrollListeners(),this.scrollPositions.clear(),Le(this.updatePoint)}};function Ml(e,t){return t?{point:t(e.point)}:e}function Nl(e,t){return{x:e.x-t.x,y:e.y-t.y}}function Pl({point:e},t){return{point:e,delta:Nl(e,Il(t)),offset:Nl(e,Fl(t)),velocity:Ll(t,.1)}}function Fl(e){return e[0]}function Il(e){return e[e.length-1]}function Ll(e,t){if(e.length<2)return{x:0,y:0};let n=e.length-1,r=null,i=Il(e);for(;n>=0&&(r=e[n],!(i.timestamp-r.timestamp>D(t)));)n--;if(!r)return{x:0,y:0};r===e[0]&&e.length>2&&i.timestamp-r.timestamp>D(t)*2&&(r=e[1]);let a=ue(i.timestamp-r.timestamp);if(a===0)return{x:0,y:0};let o={x:(i.x-r.x)/a,y:(i.y-r.y)/a};return o.x===1/0&&(o.x=0),o.y===1/0&&(o.y=0),o}function Rl(e,{min:t,max:n},r){return t!==void 0&&e<t?e=r?M(t,e,r.min):Math.max(e,t):n!==void 0&&e>n&&(e=r?M(n,e,r.max):Math.min(e,n)),e}function zl(e,t,n){return{min:t===void 0?void 0:e.min+t,max:n===void 0?void 0:e.max+n-(e.max-e.min)}}function Bl(e,{top:t,left:n,bottom:r,right:i}){return{x:zl(e.x,n,i),y:zl(e.y,t,r)}}function W(e,t){let n=t.min-e.min,r=t.max-e.max;return t.max-t.min<e.max-e.min&&([n,r]=[r,n]),{min:n,max:r}}function G(e,t){return{x:W(e.x,t.x),y:W(e.y,t.y)}}function K(e,t){let n=.5,r=ts(e),i=ts(t);return i>r?n=le(t.min,t.max-r,e.min):r>i&&(n=le(e.min,e.max-i,t.min)),ne(0,1,n)}function q(e,t){let n={};return t.min!==void 0&&(n.min=t.min-e.min),t.max!==void 0&&(n.max=t.max-e.min),n}var J=.35;function Vl(e=J){return e===!1?e=0:e===!0&&(e=J),{x:Hl(e,`left`,`right`),y:Hl(e,`top`,`bottom`)}}function Hl(e,t,n){return{min:Ul(e,t),max:Ul(e,n)}}function Ul(e,t){return typeof e==`number`?e:e[t]||0}var Wl=new WeakMap,Gl=class{constructor(e){this.openDragLock=null,this.isDragging=!1,this.currentDirection=null,this.originPoint={x:0,y:0},this.constraints=!1,this.hasMutatedConstraints=!1,this.elastic=L(),this.latestPointerEvent=null,this.latestPanInfo=null,this.visualElement=e}start(e,{snapToCursor:t=!1,distanceThreshold:n}={}){let{presenceContext:r}=this.visualElement;if(r&&r.isPresent===!1)return;let i=e=>{t&&this.snapToCursor(wl(e).point),this.stopAnimation()},a=(e,t)=>{let{drag:n,dragPropagation:r,onDragStart:i}=this.getProps();if(n&&!r&&(this.openDragLock&&this.openDragLock(),this.openDragLock=Vi(n),!this.openDragLock))return;this.latestPointerEvent=e,this.latestPanInfo=t,this.isDragging=!0,this.currentDirection=null,this.resolveConstraints(),this.visualElement.projection&&(this.visualElement.projection.isAnimationBlocked=!0,this.visualElement.projection.target=void 0),Cs(e=>{let t=this.getAxisMotionValue(e).get()||0;if(dt.test(t)){let{projection:n}=this.visualElement;if(n&&n.layout){let r=n.layout.layoutBox[e];r&&(t=ts(r)*(parseFloat(t)/100))}}this.originPoint[e]=t}),i&&k.update(()=>i(e,t),!1,!0),ci(this.visualElement,`transform`);let{animationState:a}=this.visualElement;a&&a.setActive(`whileDrag`,!0)},o=(e,t)=>{this.latestPointerEvent=e,this.latestPanInfo=t;let{dragPropagation:n,dragDirectionLock:r,onDirectionLock:i,onDrag:a}=this.getProps();if(!n&&!this.openDragLock)return;let{offset:o}=t;if(r&&this.currentDirection===null){this.currentDirection=Jl(o),this.currentDirection!==null&&i&&i(this.currentDirection);return}this.updateAxis(`x`,t.point,o),this.updateAxis(`y`,t.point,o),this.visualElement.render(),a&&k.update(()=>a(e,t),!1,!0)},s=(e,t)=>{this.latestPointerEvent=e,this.latestPanInfo=t,this.stop(e,t),this.latestPointerEvent=null,this.latestPanInfo=null},c=()=>{let{dragSnapToOrigin:e}=this.getProps();(e||this.constraints)&&this.startAnimation({x:0,y:0})},{dragSnapToOrigin:l}=this.getProps();this.panSession=new jl(e,{onSessionStart:i,onStart:a,onMove:o,onSessionEnd:s,resumeAnimation:c},{transformPagePoint:this.visualElement.getTransformPagePoint(),dragSnapToOrigin:l,distanceThreshold:n,contextWindow:Dl(this.visualElement),element:this.visualElement.current})}stop(e,t){let n=e||this.latestPointerEvent,r=t||this.latestPanInfo,i=this.isDragging;if(this.cancel(),!i||!r||!n)return;let{velocity:a}=r;this.startAnimation(a);let{onDragEnd:o}=this.getProps();o&&k.postRender(()=>o(n,r))}cancel(){this.isDragging=!1;let{projection:e,animationState:t}=this.visualElement;e&&(e.isAnimationBlocked=!1),this.endPanSession();let{dragPropagation:n}=this.getProps();!n&&this.openDragLock&&(this.openDragLock(),this.openDragLock=null),t&&t.setActive(`whileDrag`,!1)}endPanSession(){this.panSession&&this.panSession.end(),this.panSession=void 0}updateAxis(e,t,n){let{drag:r}=this.getProps();if(!n||!ql(e,r,this.currentDirection))return;let i=this.getAxisMotionValue(e),a=this.originPoint[e]+n[e];this.constraints&&this.constraints[e]&&(a=Rl(a,this.constraints[e],this.elastic[e])),i.set(a)}resolveConstraints(){let{dragConstraints:e,dragElastic:t}=this.getProps(),n=this.visualElement.projection&&!this.visualElement.projection.layout?this.visualElement.projection.measure(!1):this.visualElement.projection?.layout,r=this.constraints;e&&dl(e)?this.constraints||=this.resolveRefConstraints():this.constraints=e&&n?Bl(n.layoutBox,e):!1,this.elastic=Vl(t),r!==this.constraints&&!dl(e)&&n&&this.constraints&&!this.hasMutatedConstraints&&Cs(e=>{this.constraints!==!1&&this.getAxisMotionValue(e)&&(this.constraints[e]=q(n.layoutBox[e],this.constraints[e]))})}resolveRefConstraints(){let{dragConstraints:e,onMeasureDragConstraints:t}=this.getProps();if(!e||!dl(e))return!1;let n=e.current,{projection:r}=this.visualElement;if(!r||!r.layout)return!1;r.root&&(r.root.scroll=void 0,r.root.updateScroll());let i=z(n,r.root,this.visualElement.getTransformPagePoint()),a=G(r.layout.layoutBox,i);if(t){let e=t(Za(a));this.hasMutatedConstraints=!!e,e&&(a=Xa(e))}return a}startAnimation(e){let{drag:t,dragMomentum:n,dragElastic:r,dragTransition:i,dragSnapToOrigin:a,onDragTransitionEnd:o}=this.getProps(),s=this.constraints||{},c=Cs(o=>{if(!ql(o,t,this.currentDirection))return;let c=s&&s[o]||{};(a===!0||a===o)&&(c={min:0,max:0});let l=r?200:1e6,u=r?40:1e7,d={type:`inertia`,velocity:n?e[o]:0,bounceStiffness:l,bounceDamping:u,timeConstant:750,restDelta:1,restSpeed:10,...i,...c};return this.startAxisValueAnimation(o,d)});return Promise.all(c).then(o)}startAxisValueAnimation(e,t){let n=this.getAxisMotionValue(e);return ci(this.visualElement,e),n.start(Jr(e,n,0,t,this.visualElement,!1))}stopAnimation(){Cs(e=>this.getAxisMotionValue(e).stop())}getAxisMotionValue(e){let t=`_drag${e.toUpperCase()}`;return this.visualElement.getProps()[t]||this.visualElement.getValue(e,this.visualElement.latestValues[e]??0)}snapToCursor(e){Cs(t=>{let{drag:n}=this.getProps();if(!ql(t,n,this.currentDirection))return;let{projection:r}=this.visualElement,i=this.getAxisMotionValue(t);if(r&&r.layout){let{min:n,max:a}=r.layout.layoutBox[t],o=i.get()||0;i.set(e[t]-M(n,a,.5)+o)}})}scalePositionWithinConstraints(){if(!this.visualElement.current)return;let{drag:e,dragConstraints:t}=this.getProps(),{projection:n}=this.visualElement;if(!dl(t)||!n||!this.constraints)return;this.stopAnimation();let r={x:0,y:0};Cs(e=>{let t=this.getAxisMotionValue(e);if(t&&this.constraints!==!1){let n=t.get();r[e]=K({min:n,max:n},this.constraints[e])}});let{transformTemplate:i}=this.visualElement.getProps();this.visualElement.current.style.transform=i?i({},``):`none`,n.root&&n.root.updateScroll(),n.updateLayout(),this.constraints=!1,this.resolveConstraints(),Cs(t=>{if(!ql(t,e,null))return;let n=this.getAxisMotionValue(t),{min:i,max:a}=this.constraints[t];n.set(M(i,a,r[t]))}),this.visualElement.render()}addListeners(){if(!this.visualElement.current)return;Wl.set(this.visualElement,this);let e=this.visualElement.current,t=El(e,`pointerdown`,t=>{let{drag:n,dragListener:r=!0}=this.getProps(),i=t.target,a=i!==e&&Xi(i);n&&r&&!a&&this.start(t)}),n,r=()=>{let{dragConstraints:t}=this.getProps();dl(t)&&t.current&&(this.constraints=this.resolveRefConstraints(),n||=Kl(e,t.current,()=>this.scalePositionWithinConstraints()))},{projection:i}=this.visualElement,a=i.addEventListener(`measure`,r);i&&!i.layout&&(i.root&&i.root.updateScroll(),i.updateLayout()),k.read(r);let o=Ps(window,`resize`,()=>this.scalePositionWithinConstraints()),s=i.addEventListener(`didUpdate`,(({delta:e,hasLayoutChanged:t})=>{this.isDragging&&t&&(Cs(t=>{let n=this.getAxisMotionValue(t);n&&(this.originPoint[t]+=e[t].translate,n.set(n.get()+e[t].translate))}),this.visualElement.render())}));return()=>{o(),t(),a(),s&&s(),n&&n()}}getProps(){let e=this.visualElement.getProps(),{drag:t=!1,dragDirectionLock:n=!1,dragPropagation:r=!1,dragConstraints:i=!1,dragElastic:a=J,dragMomentum:o=!0}=e;return{...e,drag:t,dragDirectionLock:n,dragPropagation:r,dragConstraints:i,dragElastic:a,dragMomentum:o}}};function Y(e){let t=!0;return()=>{if(t){t=!1;return}e()}}function Kl(e,t,n){let r=va(e,Y(n)),i=va(t,Y(n));return()=>{r(),i()}}function ql(e,t,n){return(t===!0||t===e)&&(n===null||n===e)}function Jl(e,t=10){let n=null;return Math.abs(e.y)>t?n=`y`:Math.abs(e.x)>t&&(n=`x`),n}var Yl=class extends Ya{constructor(e){super(e),this.removeGroupControls=se,this.removeListeners=se,this.controls=new Gl(e)}mount(){let{dragControls:e}=this.node.getProps();e&&(this.removeGroupControls=e.subscribe(this.controls)),this.removeListeners=this.controls.addListeners()||se}update(){let{dragControls:e}=this.node.getProps(),{dragControls:t}=this.node.prevProps||{};e!==t&&(this.removeGroupControls(),e&&(this.removeGroupControls=e.subscribe(this.controls)))}unmount(){this.removeGroupControls(),this.removeListeners(),this.controls.isDragging||this.controls.endPanSession()}},Xl=e=>(t,n)=>{e&&k.update(()=>e(t,n),!1,!0)},Zl=class extends Ya{constructor(){super(...arguments),this.removePointerDownListener=se}onPointerDown(e){this.session=new jl(e,this.createPanHandlers(),{transformPagePoint:this.node.getTransformPagePoint(),contextWindow:Dl(this.node)})}createPanHandlers(){let{onPanSessionStart:e,onPanStart:t,onPan:n,onPanEnd:r}=this.node.getProps();return{onSessionStart:Xl(e),onStart:Xl(t),onMove:Xl(n),onEnd:(e,t)=>{delete this.session,r&&k.postRender(()=>r(e,t))}}}mount(){this.removePointerDownListener=El(this.node.current,`pointerdown`,e=>this.onPointerDown(e))}update(){this.session&&this.session.updateHandlers(this.createPanHandlers())}unmount(){this.removePointerDownListener(),this.session&&this.session.end()}},Ql=!1,$l=class extends _.Component{componentDidMount(){let{visualElement:e,layoutGroup:t,switchLayoutGroup:n,layoutId:r}=this.props,{projection:i}=e;i&&(t.group&&t.group.add(i),n&&n.register&&r&&n.register(i),Ql&&i.root.didUpdate(),i.addEventListener(`animationComplete`,()=>{this.safeToRemove()}),i.setOptions({...i.options,layoutDependency:this.props.layoutDependency,onExitComplete:()=>this.safeToRemove()})),Bs.hasEverUpdated=!0}getSnapshotBeforeUpdate(e){let{layoutDependency:t,visualElement:n,drag:r,isPresent:i}=this.props,{projection:a}=n;return a?(a.isPresent=i,e.layoutDependency!==t&&a.setOptions({...a.options,layoutDependency:t}),Ql=!0,r||e.layoutDependency!==t||t===void 0||e.isPresent!==i?a.willUpdate():this.safeToRemove(),e.isPresent!==i&&(i?a.promote():a.relegate()||k.postRender(()=>{let e=a.getStack();(!e||!e.members.length)&&this.safeToRemove()})),null):null}componentDidUpdate(){let{visualElement:e,layoutAnchor:t}=this.props,{projection:n}=e;n&&(n.options.layoutAnchor=t,n.root.didUpdate(),F.postRender(()=>{!n.currentAnimation&&n.isLead()&&this.safeToRemove()}))}componentWillUnmount(){let{visualElement:e,layoutGroup:t,switchLayoutGroup:n}=this.props,{projection:r}=e;Ql=!0,r&&(r.scheduleCheckAfterUnmount(),t&&t.group&&t.group.remove(r),n&&n.deregister&&n.deregister(r))}safeToRemove(){let{safeToRemove:e}=this.props;e&&e()}render(){return null}};function eu(e){let[t,n]=jc(),r=(0,_.useContext)(x);return(0,V.jsx)($l,{...e,layoutGroup:r,switchLayoutGroup:(0,_.useContext)(ul),isPresent:t,safeToRemove:n})}var tu={pan:{Feature:Zl},drag:{Feature:Yl,ProjectionNode:Sc,MeasureLayout:eu}};function nu(e,t,n){let{props:r}=e;e.animationState&&r.whileHover&&e.animationState.setActive(`whileHover`,n===`Start`);let i=r[`onHover`+n];i&&k.postRender(()=>i(t,wl(t)))}var ru=class extends Ya{mount(){let{current:e}=this.node;e&&(this.unmount=Wi(e,(e,t)=>(nu(this.node,t,`Start`),e=>nu(this.node,e,`End`))))}unmount(){}},iu=class extends Ya{constructor(){super(...arguments),this.isActive=!1}onFocus(){let e=!1;try{e=this.node.current.matches(`:focus-visible`)}catch{e=!0}!e||!this.node.animationState||(this.node.animationState.setActive(`whileFocus`,!0),this.isActive=!0)}onBlur(){!this.isActive||!this.node.animationState||(this.node.animationState.setActive(`whileFocus`,!1),this.isActive=!1)}mount(){this.unmount=ce(Ps(this.node.current,`focus`,()=>this.onFocus()),Ps(this.node.current,`blur`,()=>this.onBlur()))}unmount(){}};function au(e,t,n){let{props:r}=e;if(e.current instanceof HTMLButtonElement&&e.current.disabled)return;e.animationState&&r.whileTap&&e.animationState.setActive(`whileTap`,n===`Start`);let i=r[`onTap`+(n===`End`?``:n)];i&&k.postRender(()=>i(t,wl(t)))}var ou=class extends Ya{mount(){let{current:e}=this.node;if(!e)return;let{globalTapTarget:t,propagate:n}=this.node.props;this.unmount=ra(e,(e,t)=>(au(this.node,t,`Start`),(e,{success:t})=>au(this.node,e,t?`End`:`Cancel`)),{useGlobalTarget:t,stopPropagation:n?.tap===!1})}unmount(){}},su=new WeakMap,cu=new WeakMap,lu=e=>{let t=su.get(e.target);t&&t(e)},uu=e=>{e.forEach(lu)};function du({root:e,...t}){let n=e||document;cu.has(n)||cu.set(n,{});let r=cu.get(n),i=JSON.stringify(t);return r[i]||(r[i]=new IntersectionObserver(uu,{root:e,...t})),r[i]}function fu(e,t,n){let r=du(t);return su.set(e,n),r.observe(e),()=>{su.delete(e),r.unobserve(e)}}var pu={some:0,all:1},mu=class extends Ya{constructor(){super(...arguments),this.hasEnteredView=!1,this.isInView=!1}startObserver(){this.stopObserver?.();let{viewport:e={}}=this.node.getProps(),{root:t,margin:n,amount:r=`some`,once:i}=e,a={root:t?t.current:void 0,rootMargin:n,threshold:typeof r==`number`?r:pu[r]},o=e=>{let{isIntersecting:t}=e;if(this.isInView===t||(this.isInView=t,i&&!t&&this.hasEnteredView))return;t&&(this.hasEnteredView=!0),this.node.animationState&&this.node.animationState.setActive(`whileInView`,t);let{onViewportEnter:n,onViewportLeave:r}=this.node.getProps(),a=t?n:r;a&&a(e)};this.stopObserver=fu(this.node.current,a,o)}mount(){this.startObserver()}update(){if(typeof IntersectionObserver>`u`)return;let{props:e,prevProps:t}=this.node;[`amount`,`margin`,`root`].some(hu(e,t))&&this.startObserver()}unmount(){this.stopObserver?.(),this.hasEnteredView=!1,this.isInView=!1}};function hu({viewport:e={}},{viewport:t={}}={}){return n=>e[n]!==t[n]}var gu={inView:{Feature:mu},tap:{Feature:ou},focus:{Feature:iu},hover:{Feature:ru}},_u={layout:{ProjectionNode:Sc,MeasureLayout:eu}},vu=yl({...Cl,...gu,...tu,..._u},bl);function yu(e){return typeof window>`u`?!1:e?sr():or()}var bu=50,xu=()=>({current:0,offset:[],progress:0,scrollLength:0,targetOffset:0,targetLength:0,containerLength:0,velocity:0}),Su=()=>({time:0,x:xu(),y:xu()}),Cu={x:{length:`Width`,position:`Left`},y:{length:`Height`,position:`Top`}};function wu(e,t,n,r){let i=n[t],{length:a,position:o}=Cu[t],s=i.current,c=n.time;i.current=Math.abs(e[`scroll${o}`]),i.scrollLength=e[`scroll${a}`]-e[`client${a}`],i.offset.length=0,i.offset[0]=0,i.offset[1]=i.scrollLength,i.progress=le(0,i.scrollLength,i.current);let l=r-c;i.velocity=l>bu?0:de(i.current-s,l)}function Tu(e,t,n){wu(e,`x`,t,n),wu(e,`y`,t,n),t.time=n}function Eu(e,t){let n={x:0,y:0},r=e;for(;r&&r!==t;)if(P(r))n.x+=r.offsetLeft,n.y+=r.offsetTop,r=r.offsetParent;else if(r.tagName===`svg`){let e=r.getBoundingClientRect();r=r.parentElement;let t=r.getBoundingClientRect();n.x+=e.left-t.left,n.y+=e.top-t.top}else if(r instanceof SVGGraphicsElement){let{x:e,y:t}=r.getBBox();n.x+=e,n.y+=t;let i=null,a=r.parentNode;for(;!i;)a.tagName===`svg`&&(i=a),a=r.parentNode;r=i}else break;return n}var Du={start:0,center:.5,end:1};function Ou(e,t,n=0){let r=0;if(e in Du&&(e=Du[e]),typeof e==`string`){let t=parseFloat(e);e.endsWith(`px`)?r=t:e.endsWith(`%`)?e=t/100:e.endsWith(`vw`)?r=t/100*document.documentElement.clientWidth:e.endsWith(`vh`)?r=t/100*document.documentElement.clientHeight:e=t}return typeof e==`number`&&(r=t*e),n+r}var ku=[0,0];function Au(e,t,n,r){let i=Array.isArray(e)?e:ku,a=0,o=0;return typeof e==`number`?i=[e,e]:typeof e==`string`&&(e=e.trim(),i=e.includes(` `)?e.split(` `):[e,Du[e]?e:`0`]),a=Ou(i[0],n,r),o=Ou(i[1],t),a-o}var ju={Enter:[[0,1],[1,1]],Exit:[[0,0],[1,0]],Any:[[1,0],[0,1]],All:[[0,0],[1,1]]},Mu={x:0,y:0};function Nu(e){return`getBBox`in e&&e.tagName!==`svg`?e.getBBox():{width:e.clientWidth,height:e.clientHeight}}function Pu(e,t,n){let{offset:r=ju.All}=n,{target:i=e,axis:a=`y`}=n,o=a===`y`?`height`:`width`,s=i===e?Mu:Eu(i,e),c=i===e?{width:e.scrollWidth,height:e.scrollHeight}:Nu(i),l={width:e.clientWidth,height:e.clientHeight};t[a].offset.length=0;let u=!t[a].interpolate,d=r.length;for(let e=0;e<d;e++){let n=Au(r[e],l[o],c[o],s[a]);!u&&n!==t[a].interpolatorOffsets[e]&&(u=!0),t[a].offset[e]=n}u&&(t[a].interpolate=hn(t[a].offset,_n(r),{clamp:!1}),t[a].interpolatorOffsets=[...t[a].offset]),t[a].progress=ne(0,1,t[a].interpolate(t[a].current))}function Fu(e,t=e,n){if(n.x.targetOffset=0,n.y.targetOffset=0,t!==e){let r=t;for(;r&&r!==e;)n.x.targetOffset+=r.offsetLeft,n.y.targetOffset+=r.offsetTop,r=r.offsetParent}n.x.targetLength=t===e?t.scrollWidth:t.clientWidth,n.y.targetLength=t===e?t.scrollHeight:t.clientHeight,n.x.containerLength=e.clientWidth,n.y.containerLength=e.clientHeight}function Iu(e,t,n,r={}){return{measure:t=>{Fu(e,r.target,n),Tu(e,n,t),(r.offset||r.target)&&Pu(e,n,r)},notify:()=>t(n)}}var Lu=new WeakMap,Ru=new WeakMap,zu=new WeakMap,Bu=new WeakMap,Vu=new WeakMap,Hu=e=>e===document.scrollingElement?window:e;function Uu(e,{container:t=document.scrollingElement,trackContentSize:n=!1,...r}={}){if(!t)return se;let i=zu.get(t);i||(i=new Set,zu.set(t,i));let a=Iu(t,e,Su(),r);if(i.add(a),!Lu.has(t)){let e=()=>{for(let e of i)e.measure(Re.timestamp);k.preUpdate(n)},n=()=>{for(let e of i)e.notify()},r=()=>k.read(e);Lu.set(t,r);let a=Hu(t);window.addEventListener(`resize`,r),t!==document.documentElement&&Ru.set(t,va(t,r)),a.addEventListener(`scroll`,r),r()}if(n&&!Vu.has(t)){let e=Lu.get(t),n={width:t.scrollWidth,height:t.scrollHeight};Bu.set(t,n);let r=k.read(()=>{let r=t.scrollWidth,i=t.scrollHeight;(n.width!==r||n.height!==i)&&(e(),n.width=r,n.height=i)},!0);Vu.set(t,r)}let o=Lu.get(t);return k.read(o,!1,!0),()=>{Le(o);let e=zu.get(t);if(!e||(e.delete(a),e.size))return;let n=Lu.get(t);Lu.delete(t),n&&(Hu(t).removeEventListener(`scroll`,n),Ru.get(t)?.(),window.removeEventListener(`resize`,n));let r=Vu.get(t);r&&(Le(r),Vu.delete(t)),Bu.delete(t)}}var Wu=[[ju.Enter,`entry`],[ju.Exit,`exit`],[ju.Any,`cover`],[ju.All,`contain`]],Gu={start:0,end:1};function X(e){let t=e.trim().split(/\s+/);if(t.length!==2)return;let n=Gu[t[0]],r=Gu[t[1]];if(n!==void 0&&r!==void 0)return[n,r]}function Ku(e){if(e.length!==2)return;let t=[];for(let n of e)if(Array.isArray(n))t.push(n);else if(typeof n==`string`){let e=X(n);if(!e)return;t.push(e)}else return;return t}function qu(e,t){let n=Ku(e);if(!n)return!1;for(let e=0;e<2;e++){let r=n[e],i=t[e];if(r[0]!==i[0]||r[1]!==i[1])return!1}return!0}function Ju(e){if(!e)return{rangeStart:`contain 0%`,rangeEnd:`contain 100%`};for(let[t,n]of Wu)if(qu(e,t))return{rangeStart:`${n} 0%`,rangeEnd:`${n} 100%`}}var Yu=new Map;function Xu(e){let t={value:0};return{currentTime:t,cancel:Uu(n=>{t.value=n[e.axis].progress*100},e)}}function Zu({source:e,container:t,...n}){let{axis:r}=n;e&&(t=e);let i=Yu.get(t);i||(i=new Map,Yu.set(t,i));let a=n.target??`self`,o=i.get(a);o||(o={},i.set(a,o));let s=r+(n.offset??[]).join(`,`);return o[s]||(n.target&&yu(n.target)?Ju(n.offset)?o[s]=new ViewTimeline({subject:n.target,axis:r}):o[s]=Xu({container:t,...n}):yu()?o[s]=new ScrollTimeline({source:t,axis:r}):o[s]=Xu({container:t,...n})),o[s]}function Qu(e,t){let n=Zu(t),r=t.target?Ju(t.offset):void 0,i=t.target?yu(t.target)&&!!r:yu();return e.attachTimeline({timeline:i?n:void 0,...r&&i&&{rangeStart:r.rangeStart,rangeEnd:r.rangeEnd},observe:e=>(e.pause(),ya(t=>{e.time=e.iterationDuration*t},n))})}function $u(e){return e&&(e.target||e.offset)}function ed(e){return e.length===2}function td(e,t){return ed(e)||$u(t)?Uu(n=>{e(n[t.axis].progress,n)},t):ya(e,Zu(t))}function nd(e,{axis:t=`y`,container:n=document.scrollingElement,...r}={}){if(!n)return se;let i={axis:t,container:n,...r};return typeof e==`function`?td(e,i):Qu(e,i)}var rd=()=>({scrollX:Rr(0),scrollY:Rr(0),scrollXProgress:Rr(0),scrollYProgress:Rr(0)}),id=e=>e?!e.current:!1;function ad(e,t,n,r){return{factory:i=>{let a,o=()=>{if(id(n)||id(r)){F.read(o);return}a=nd(i,{...t,axis:e,container:n?.current||void 0,target:r?.current||void 0})};return F.read(o),()=>{zi(o),a?.()}},times:[0,1],keyframes:[0,1],ease:e=>e,duration:1}}function od(e,t){return typeof window>`u`?!1:e?sr()&&!!Ju(t):or()}function sd({container:e,target:t,...n}={}){let r=S(rd);od(t,n.offset)&&(r.scrollXProgress.accelerate=ad(`x`,n,e,t),r.scrollYProgress.accelerate=ad(`y`,n,e,t));let i=(0,_.useRef)(null),a=(0,_.useRef)(!1),o=(0,_.useCallback)(()=>(i.current=nd((e,{x:t,y:n})=>{r.scrollX.set(t.current),r.scrollXProgress.set(t.progress),r.scrollY.set(n.current),r.scrollYProgress.set(n.progress)},{...n,container:e?.current||void 0,target:t?.current||void 0}),()=>{i.current?.()}),[e,t,JSON.stringify(n.offset)]);return C(()=>{if(a.current=!1,id(e)||id(t)){a.current=!0;return}return o()},[o]),(0,_.useEffect)(()=>{if(!a.current)return;let n,r=()=>{let r=id(e),i=id(t);!r&&!i&&(n=o())};return F.read(r),()=>{zi(r),n?.()}},[o]),r}function cd(e){let t=S(()=>Rr(e)),{isStatic:n}=(0,_.useContext)(Cc);if(n){let[,n]=(0,_.useState)(e);(0,_.useEffect)(()=>t.on(`change`,n),[])}return t}function ld(e,t){let n=cd(t()),r=()=>n.set(t());return r(),C(()=>{let t=()=>k.preRender(r,!1,!0),n=e.map(e=>e.on(`change`,t));return()=>{n.forEach(e=>e()),Le(r)}}),n}function ud(e){Ir.current=[],e();let t=ld(Ir.current,e);return Ir.current=void 0,t}function dd(e,t,n,r){if(typeof e==`function`)return ud(e);if(n!==void 0&&!Array.isArray(n)&&typeof t!=`function`)return pd(e,t,n,r);let i=typeof t==`function`?t:Sa(t,n,r),a=Array.isArray(e)?fd(e,i):fd([e],([e])=>i(e)),o=Array.isArray(e)?void 0:e.accelerate;return o&&!o.isTransformed&&typeof t!=`function`&&Array.isArray(n)&&r?.clamp!==!1&&(a.accelerate={...o,times:t,keyframes:n,isTransformed:!0,...r?.ease?{ease:r.ease}:{}}),a}function fd(e,t){let n=S(()=>[]);return ld(e,()=>{n.length=0;let r=e.length;for(let t=0;t<r;t++)n[t]=e[t].get();return t(n)})}function pd(e,t,n,r){let i=S(()=>Object.keys(n)),a=S(()=>({}));for(let o of i)a[o]=dd(e,t,n[o],r);return a}function md(e,t={}){let{isStatic:n}=(0,_.useContext)(Cc),r=()=>oi(e)?e.get():e;if(n)return dd(r);let i=cd(r());return(0,_.useInsertionEffect)(()=>Ca(i,e,t),[i,JSON.stringify(t)]),i}function hd(e,t={}){return md(e,{type:`spring`,...t})}var Z=vu,gd=`data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20500%20500'%20width='100%25'%20height='100%25'%3e%3cdefs%3e%3c!--%20Gradient%20for%20soft,%20realistic%20shading%20--%3e%3clinearGradient%20id='sakuraGradient'%20x1='0%25'%20y1='100%25'%20x2='0%25'%20y2='0%25'%3e%3cstop%20offset='0%25'%20stop-color='%23f7a8b8'%20/%3e%3cstop%20offset='40%25'%20stop-color='%23ffb7c5'%20/%3e%3cstop%20offset='85%25'%20stop-color='%23ffd1dc'%20/%3e%3cstop%20offset='100%25'%20stop-color='%23fff0f5'%20/%3e%3c/linearGradient%3e%3c!--%20Subtle%20inner%20highlight%20for%20depth%20--%3e%3clinearGradient%20id='innerShadow'%20x1='0%25'%20y1='0%25'%20x2='100%25'%20y2='100%25'%3e%3cstop%20offset='0%25'%20stop-color='%23e88299'%20stop-opacity='0.6'%20/%3e%3cstop%20offset='50%25'%20stop-color='%23f7a8b8'%20stop-opacity='0.0'%20/%3e%3c/linearGradient%3e%3c!--%20Soft%20drop%20shadow%20filter%20--%3e%3cfilter%20id='softShadow'%20x='-20%25'%20y='-20%25'%20width='140%25'%20height='140%25'%3e%3cfeDropShadow%20dx='2'%20dy='8'%20stdDeviation='6'%20flood-color='%238b4556'%20flood-opacity='0.15'%20/%3e%3c/filter%3e%3c/defs%3e%3c!--%20Sakura%20Petal%20Path%20--%3e%3cg%20filter='url(%23softShadow)'%20transform='rotate(-15%20250%20250)'%3e%3c!--%20Base%20Petal%20Shape%20--%3e%3cpath%20d='M%20250,420%20C%20180,380%20100,280%20110,180%20C%20115,130%20150,80%20200,70%20C%20225,65%20242,78%20250,88%20C%20258,78%20275,65%20300,70%20C%20350,80%20385,130%20390,180%20C%20400,280%20320,380%20250,420%20Z'%20fill='url(%23sakuraGradient)'%20/%3e%3c!--%20Notch%20Detail%20Overlay%20for%20realistic%20curve%20--%3e%3cpath%20d='M%20200,70%20C%20225,65%20242,78%20250,88%20C%20258,78%20275,65%20300,70%20C%20280,85%20265,92%20250,90%20C%20235,92%20220,85%20200,70%20Z'%20fill='%23fcaebe'%20opacity='0.5'%20/%3e%3c!--%20Delicate%20Vein%20Lines%20--%3e%3cg%20stroke='%23e57388'%20stroke-width='1.5'%20stroke-linecap='round'%20opacity='0.35'%3e%3c!--%20Center%20Vein%20--%3e%3cpath%20d='M%20250,400%20Q%20250,250%20250,110'%20/%3e%3c!--%20Side%20Veins%20(Left)%20--%3e%3cpath%20d='M%20250,360%20Q%20220,300%20180,250'%20/%3e%3cpath%20d='M%20250,310%20Q%20210,240%20160,180'%20/%3e%3cpath%20d='M%20250,240%20Q%20215,180%20175,130'%20/%3e%3c!--%20Side%20Veins%20(Right)%20--%3e%3cpath%20d='M%20250,360%20Q%20280,300%20320,250'%20/%3e%3cpath%20d='M%20250,310%20Q%20290,240%20340,180'%20/%3e%3cpath%20d='M%20250,240%20Q%20285,180%20325,130'%20/%3e%3c/g%3e%3c!--%20Base%20Glow/Accent%20(Narrow%20Pink%20Tip%20at%20Bottom)%20--%3e%3cpath%20d='M%20250,420%20C%20235,390%20220,350%20225,320%20C%20240,335%20260,335%20275,320%20C%20280,350%20265,390%20250,420%20Z'%20fill='%23db5a75'%20opacity='0.25'%20/%3e%3c/g%3e%3c/svg%3e`,_d=Array.from({length:18},(e,t)=>({id:t,left:Math.random()*100,size:12+Math.random()*18,duration:6+Math.random()*6,delay:Math.random()*5,drift:-80+Math.random()*160,rotation:180+Math.random()*360}));function vd(){return(0,V.jsx)(`div`,{className:`pointer-events-none absolute inset-0 overflow-hidden`,children:_d.map(e=>(0,V.jsx)(Z.img,{src:gd,alt:``,className:`absolute`,style:{left:`${e.left}%`,width:`${e.size}px`},initial:{y:`-10vh`,opacity:0,rotate:0},animate:{y:`110vh`,x:[0,e.drift,-e.drift/2,e.drift],opacity:[0,.8,.9,0],rotate:e.rotation},transition:{duration:e.duration,delay:e.delay,repeat:1/0,ease:`linear`}},e.id))})}var yd=`/decimalMovie/assets/sakuraTree-D2Jo7XSD.svg`,Q=`/decimalMovie/assets/opening-D9vw82Mu.mp3`;function bd(){let e=(0,_.useRef)(null);return(0,_.useEffect)(()=>{(async()=>{try{e.current.volume=.5,await e.current.play()}catch{console.log(`Autoplay was blocked by the browser.`)}})()},[]),(0,V.jsxs)(`section`,{className:`\r
+        `),()=>{s.current?.removeAttribute(`data-motion-pop-id`),b.contains(y)&&b.removeChild(y)}},[t]),(0,V.jsx)(Dc,{isPresent:t,childRef:s,sizeRef:c,pop:a,children:a===!1?e:_.cloneElement(e,{ref:u})})}var kc=({children:e,initial:t,isPresent:n,onExitComplete:r,custom:i,presenceAffectsLayout:a,mode:o,anchorX:s,anchorY:c,root:l})=>{let u=S(Ac),d=(0,_.useId)(),f=(0,_.useRef)(n),p=(0,_.useRef)(r);C(()=>{f.current=n,p.current=r});let m=!0,h=(0,_.useMemo)(()=>(m=!1,{id:d,initial:t,isPresent:n,custom:i,onExitComplete:e=>{u.set(e,!0);for(let e of u.values())if(!e)return;r&&r()},register:e=>(u.set(e,!1),()=>{u.delete(e),!f.current&&!u.size&&p.current?.()})}),[n,u,r]);return a&&m&&(h={...h}),(0,_.useMemo)(()=>{u.forEach((e,t)=>u.set(t,!1))},[n]),_.useEffect(()=>{!n&&!u.size&&r&&r()},[n]),e=(0,V.jsx)(Oc,{pop:o===`popLayout`,isPresent:n,anchorX:s,anchorY:c,root:l,children:e}),(0,V.jsx)(w.Provider,{value:h,children:e})};function Ac(){return new Map}function jc(e=!0){let t=(0,_.useContext)(w);if(t===null)return[!0,null];let{isPresent:n,onExitComplete:r,register:i}=t,a=(0,_.useId)();(0,_.useEffect)(()=>{if(e)return i(a)},[e]);let o=(0,_.useCallback)(()=>e&&r&&r(a),[a,r,e]);return!n&&r?[!1,o]:[!0]}var Mc=e=>e.key||``;function Nc(e){let t=[];return _.Children.forEach(e,e=>{(0,_.isValidElement)(e)&&t.push(e)}),t}var Pc=({children:e,custom:t,initial:n=!0,onExitComplete:r,presenceAffectsLayout:i=!0,mode:a=`sync`,propagate:o=!1,anchorX:s=`left`,anchorY:c=`top`,root:l})=>{let[u,d]=jc(o),f=(0,_.useMemo)(()=>Nc(e),[e]),p=o&&!u?[]:f.map(Mc),m=(0,_.useRef)(!0),h=(0,_.useRef)(f),g=S(()=>new Map),v=(0,_.useRef)(new Set),[y,b]=(0,_.useState)(f),[w,ee]=(0,_.useState)(f);C(()=>{o&&!u&&!w.length&&d?.()},[u,o,w.length,d]),C(()=>{m.current=!1,h.current=f;for(let e=0;e<w.length;e++){let t=Mc(w[e]);p.includes(t)?(g.delete(t),v.current.delete(t)):g.get(t)!==!0&&g.set(t,!1)}},[w,p.length,p.join(`-`)]);let te=[];if(f!==y){let e=[...f];for(let t=0;t<w.length;t++){let n=w[t],r=Mc(n);p.includes(r)||(e.splice(t,0,n),te.push(n))}return a===`wait`&&te.length&&(e=te),ee(Nc(e)),b(f),null}let{forceRender:ne}=(0,_.useContext)(x);return(0,V.jsx)(V.Fragment,{children:w.map(e=>{let _=Mc(e),y=o&&!u?!1:f===w||p.includes(_);return(0,V.jsx)(kc,{isPresent:y,initial:!m.current||n?void 0:!1,custom:t,presenceAffectsLayout:i,mode:a,root:l,onExitComplete:y?void 0:()=>{if(v.current.has(_))return;if(g.has(_))v.current.add(_),g.set(_,!0);else return;let e=!0;g.forEach(t=>{t||(e=!1)}),e&&(ne?.(),ee(h.current),o&&d?.(),r&&r())},anchorX:s,anchorY:c,children:e},_)})})},Fc=(0,_.createContext)({strict:!1}),Ic={animation:[`animate`,`variants`,`whileHover`,`whileTap`,`exit`,`whileInView`,`whileFocus`,`whileDrag`],exit:[`exit`],drag:[`drag`,`dragControls`],focus:[`whileFocus`],hover:[`whileHover`,`onHoverStart`,`onHoverEnd`],tap:[`whileTap`,`onTap`,`onTapStart`,`onTapCancel`],pan:[`onPan`,`onPanStart`,`onPanSessionStart`,`onPanEnd`],inView:[`whileInView`,`onViewportEnter`,`onViewportLeave`],layout:[`layout`,`layoutId`]},Lc=!1;function Rc(){if(Lc)return;let e={};for(let t in Ic)e[t]={isEnabled:e=>Ic[t].some(t=>!!e[t])};Ga(e),Lc=!0}function zc(){return Rc(),Ka()}function H(e){let t=zc();for(let n in e)t[n]={...t[n],...e[n]};Ga(t)}var Bc=(0,_.createContext)({});function Vc(e,t){if(Ia(e)){let{initial:t,animate:n}=e;return{initial:t===!1||Na(t)?t:void 0,animate:Na(n)?n:void 0}}return e.inherit===!1?{}:t}function Hc(e){let{initial:t,animate:n}=Vc(e,(0,_.useContext)(Bc));return(0,_.useMemo)(()=>({initial:t,animate:n}),[Uc(t),Uc(n)])}function Uc(e){return Array.isArray(e)?e.join(` `):e}var Wc=()=>({style:{},transform:{},transformOrigin:{},vars:{}});function Gc(e,t,n){for(let r in t)!oi(t[r])&&!wo(r,n)&&(e[r]=t[r])}function Kc({transformTemplate:e},t){return(0,_.useMemo)(()=>{let n=Wc();return yo(n,t,e),Object.assign({},n.vars,n.style)},[t])}function qc(e,t){let n=e.style||{},r={};return Gc(r,n,e),Object.assign(r,Kc(e,t)),r}function Jc(e,t){let n={},r=qc(e,t);return e.drag&&e.dragListener!==!1&&(n.draggable=!1,r.userSelect=r.WebkitUserSelect=r.WebkitTouchCallout=`none`,r.touchAction=e.drag===!0?`none`:`pan-${e.drag===`x`?`y`:`x`}`),e.tabIndex===void 0&&(e.onTap||e.onTapStart||e.whileTap)&&(n.tabIndex=0),n.style=r,n}var Yc=()=>({...Wc(),attrs:{}});function Xc(e,t,n,r){let i=(0,_.useMemo)(()=>{let n=Yc();return Mo(n,t,Po(r),e.transformTemplate,e.style),{...n.attrs,style:{...n.style}}},[t]);if(e.style){let t={};Gc(t,e.style,e),i.style={...t,...i.style}}return i}var Zc=new Set(`animate.exit.variants.initial.style.values.variants.transition.transformTemplate.custom.inherit.onBeforeLayoutMeasure.onAnimationStart.onAnimationComplete.onUpdate.onDragStart.onDrag.onDragEnd.onMeasureDragConstraints.onDirectionLock.onDragTransitionEnd._dragX._dragY.onHoverStart.onHoverEnd.onViewportEnter.onViewportLeave.globalTapTarget.propagate.ignoreStrict.viewport`.split(`.`));function Qc(e){return e.startsWith(`while`)||e.startsWith(`drag`)&&e!==`draggable`||e.startsWith(`layout`)||e.startsWith(`onTap`)||e.startsWith(`onPan`)||e.startsWith(`onLayout`)||Zc.has(e)}function $c(e,t){return e.startsWith(`on`)?!Qc(e):t?.(e)??!Qc(e)}function el(e,t,n,r){let i={};for(let a in e)(a!==`values`||typeof e.values!=`object`)&&(oi(e[a])||($c(a,r)||n===!0&&Qc(a)||!t&&!Qc(a)||e.draggable&&a.startsWith(`onDrag`))&&(i[a]=e[a]));return i}var tl=[`animate`,`circle`,`defs`,`desc`,`ellipse`,`g`,`image`,`line`,`filter`,`marker`,`mask`,`metadata`,`path`,`pattern`,`polygon`,`polyline`,`rect`,`stop`,`switch`,`symbol`,`svg`,`text`,`tspan`,`use`,`view`];function nl(e){return typeof e!=`string`||e.includes(`-`)?!1:!!(tl.indexOf(e)>-1||/[A-Z]/u.test(e))}function rl(e,t,n,{latestValues:r},i,a=!1,o,s){let c=(o??nl(e)?Xc:Jc)(t,r,i,e),l=el(t,typeof e==`string`,a,s),u=e===_.Fragment?{}:{...l,...c,ref:n},{children:d}=t,f=(0,_.useMemo)(()=>oi(d)?d.get():d,[d]);return(0,_.createElement)(e,{...u,children:f})}function il({scrapeMotionValuesFromProps:e,createRenderState:t},n,r,i){return{latestValues:al(n,r,i,e),renderState:t()}}function al(e,t,n,r){let i={},a=r(e,{});for(let e in a)i[e]=Rs(a[e]);let{initial:o,animate:s}=e,c=Ia(e),l=La(e);t&&l&&!c&&e.inherit!==!1&&(o===void 0&&(o=t.initial),s===void 0&&(s=t.animate));let u=n?n.initial===!1:!1;u||=o===!1;let d=u?s:o;if(d&&typeof d!=`boolean`&&!Ma(d)){let t=Array.isArray(d)?d:[d];for(let n=0;n<t.length;n++){let r=$r(e,t[n]);if(r){let{transitionEnd:e,transition:t,...n}=r;for(let e in n){let t=n[e];if(Array.isArray(t)){let e=u?t.length-1:0;t=t[e]}t!==null&&(i[e]=t)}for(let t in e)i[t]=e[t]}}}return i}var ol=e=>(t,n)=>{let r=(0,_.useContext)(Bc),i=(0,_.useContext)(w),a=()=>il(e,t,r,i);return n?a():S(a)},sl=ol({scrapeMotionValuesFromProps:To,createRenderState:Wc}),cl=ol({scrapeMotionValuesFromProps:Io,createRenderState:Yc}),ll=Symbol.for(`motionComponentSymbol`);function U(e,t,n){let r=(0,_.useRef)(n);(0,_.useInsertionEffect)(()=>{r.current=n});let i=(0,_.useRef)(null);return(0,_.useCallback)(n=>{n&&e.onMount?.(n),t&&(n?t.mount(n):t.unmount());let a=r.current;if(typeof a==`function`){if(n){let e=a(n);typeof e==`function`&&(i.current=e)}else i.current?(i.current(),i.current=null):a(n)}else a&&(a.current=n)},[t])}var ul=(0,_.createContext)({});function dl(e){return e&&typeof e==`object`&&Object.prototype.hasOwnProperty.call(e,`current`)}function fl(e,t,n,r,i,a){let{visualElement:o}=(0,_.useContext)(Bc),s=(0,_.useContext)(Fc),c=(0,_.useContext)(w),l=(0,_.useContext)(Cc),u=l.reducedMotion,d=l.skipAnimations,f=(0,_.useRef)(null),p=(0,_.useRef)(!1);r||=s.renderer,!f.current&&r&&(f.current=r(e,{visualState:t,parent:o,props:n,presenceContext:c,blockInitialAnimation:c?c.initial===!1:!1,reducedMotionConfig:u,skipAnimations:d,isSVG:a}),p.current&&f.current&&(f.current.manuallyAnimateOnMount=!0));let m=f.current,h=(0,_.useContext)(ul);m&&!m.projection&&i&&(m.type===`html`||m.type===`svg`)&&pl(f.current,n,i,h);let g=(0,_.useRef)(!1);(0,_.useInsertionEffect)(()=>{m&&g.current&&m.update(n,c)});let v=n[ui],y=(0,_.useRef)(!!v&&typeof window<`u`&&!window.MotionHandoffIsComplete?.(v)&&window.MotionHasOptimisedAnimation?.(v));return C(()=>{p.current=!0,m&&(g.current=!0,window.MotionIsMounted=!0,m.updateFeatures(),m.scheduleRenderMicrotask(),y.current&&m.animationState&&m.animationState.animateChanges())}),(0,_.useEffect)(()=>{m&&(!y.current&&m.animationState&&m.animationState.animateChanges(),y.current&&=(queueMicrotask(()=>{window.MotionHandoffMarkAsComplete?.(v)}),!1),m.enteringChildren=void 0)}),m}function pl(e,t,n,r){let{layoutId:i,layout:a,drag:o,dragConstraints:s,layoutScroll:c,layoutRoot:l,layoutAnchor:u,layoutCrossfade:d}=t;e.projection=new n(e.latestValues,t[`data-framer-portal-id`]?void 0:ml(e.parent)),e.projection.setOptions({layoutId:i,layout:a,alwaysMeasureLayout:!!o||s&&dl(s),visualElement:e,animationType:typeof a==`string`?a:`both`,initialPromotionConfig:r,crossfade:d,layoutScroll:c,layoutRoot:l,layoutAnchor:u})}function ml(e){if(e)return e.options.allowProjection===!1?ml(e.parent):e.projection}function hl(e,{forwardMotionProps:t=!1,type:n}={},r,i){r&&H(r);let a=n?n===`svg`:nl(e),o=a?cl:sl;function s(n,s){let c,l={...(0,_.useContext)(Cc),...n,layoutId:gl(n)},{isStatic:u,isValidProp:d}=l,f=Hc(n),p=o(n,u);if(!u&&typeof window<`u`){_l(l,r);let t=vl(l);c=t.MeasureLayout,f.visualElement=fl(e,p,l,i,t.ProjectionNode,a)}return(0,V.jsxs)(Bc.Provider,{value:f,children:[c&&f.visualElement?(0,V.jsx)(c,{visualElement:f.visualElement,...l}):null,rl(e,n,U(p,f.visualElement,s),p,u,t,a,d)]})}s.displayName=`motion.${typeof e==`string`?e:`create(${e.displayName??e.name??``})`}`;let c=(0,_.forwardRef)(s);return c[ll]=e,c}function gl({layoutId:e}){let t=(0,_.useContext)(x).id;return t&&e!==void 0?t+`-`+e:e}function _l(e,t){(0,_.useContext)(Fc).strict}function vl(e){let{drag:t,layout:n}=zc();if(!t&&!n)return{};let r={...t,...n};return{MeasureLayout:t?.isEnabled(e)||n?.isEnabled(e)?r.MeasureLayout:void 0,ProjectionNode:r.ProjectionNode}}function yl(e,t){if(typeof Proxy>`u`)return hl;let n=new Map,r=(n,r)=>hl(n,r,e,t);return new Proxy((e,t)=>r(e,t),{get:(i,a)=>a===`create`?r:(n.has(a)||n.set(a,hl(a,void 0,e,t)),n.get(a))})}var bl=(e,t)=>t.isSVG??nl(e)?new Lo(t):new Do(t,{allowProjection:e!==_.Fragment}),xl=class extends Ya{constructor(e){super(e),e.animationState||=Wo(e)}updateAnimationControlsSubscription(){let{animate:e}=this.node.getProps();Ma(e)&&(this.unmountControls=e.subscribe(this.node))}mount(){this.updateAnimationControlsSubscription()}update(){let{animate:e}=this.node.getProps(),{animate:t}=this.node.prevProps||{};e!==t&&this.updateAnimationControlsSubscription()}unmount(){this.node.animationState.reset(),this.unmountControls?.()}},Sl=0,Cl={animation:{Feature:xl},exit:{Feature:class extends Ya{constructor(){super(...arguments),this.id=Sl++,this.isExitComplete=!1}update(){if(!this.node.presenceContext)return;let{isPresent:e,onExitComplete:t}=this.node.presenceContext,{isPresent:n}=this.node.prevPresenceContext||{};if(!this.node.animationState||e===n)return;if(e&&n===!1){if(this.isExitComplete){let{initial:e,custom:t}=this.node.getProps();if(typeof e==`string`||typeof e==`object`&&e&&!Array.isArray(e)){let n=ei(this.node,e,t);if(n){let{transition:e,transitionEnd:t,...r}=n;for(let e in r)this.node.getValue(e)?.jump(r[e])}}this.node.animationState.reset(),this.node.animationState.animateChanges()}else this.node.animationState.setActive(`exit`,!1);this.isExitComplete=!1;return}let r=this.node.animationState.setActive(`exit`,!e);t&&!e&&r.then(()=>{this.isExitComplete=!0,t(this.id)})}mount(){let{register:e,onExitComplete:t}=this.node.presenceContext||{};t&&t(this.id),e&&(this.unmount=e(this.id))}unmount(){}}}};function wl(e){return{point:{x:e.pageX,y:e.pageY}}}var Tl=e=>t=>Ki(t)&&e(t,wl(t));function El(e,t,n,r){return Ps(e,t,Tl(n),r)}var Dl=({current:e})=>e?e.ownerDocument.defaultView:null,Ol=(e,t)=>Math.abs(e-t);function kl(e,t){let n=Ol(e.x,t.x),r=Ol(e.y,t.y);return Math.sqrt(n**2+r**2)}var Al=new Set([`auto`,`scroll`]),jl=class{constructor(e,t,{transformPagePoint:n,contextWindow:r=window,dragSnapToOrigin:i=!1,distanceThreshold:a=3,element:o}={}){if(this.startEvent=null,this.lastMoveEvent=null,this.lastMoveEventInfo=null,this.lastRawMoveEventInfo=null,this.handlers={},this.contextWindow=window,this.scrollPositions=new Map,this.removeScrollListeners=null,this.onElementScroll=e=>{this.handleScroll(e.target)},this.onWindowScroll=()=>{this.handleScroll(window)},this.updatePoint=()=>{if(!(this.lastMoveEvent&&this.lastMoveEventInfo))return;this.lastRawMoveEventInfo&&(this.lastMoveEventInfo=Ml(this.lastRawMoveEventInfo,this.transformPagePoint));let e=Pl(this.lastMoveEventInfo,this.history),t=this.startEvent!==null,n=kl(e.offset,{x:0,y:0})>=this.distanceThreshold;if(!t&&!n)return;let{point:r}=e,{timestamp:i}=Re;this.history.push({...r,timestamp:i});let{onStart:a,onMove:o}=this.handlers;t||(a&&a(this.lastMoveEvent,e),this.startEvent=this.lastMoveEvent),o&&o(this.lastMoveEvent,e)},this.handlePointerMove=(e,t)=>{this.lastMoveEvent=e,this.lastRawMoveEventInfo=t,this.lastMoveEventInfo=Ml(t,this.transformPagePoint),k.update(this.updatePoint,!0)},this.handlePointerUp=(e,t)=>{this.end();let{onEnd:n,onSessionEnd:r,resumeAnimation:i}=this.handlers;if((this.dragSnapToOrigin||!this.startEvent)&&i&&i(),!(this.lastMoveEvent&&this.lastMoveEventInfo))return;let a=Pl(e.type===`pointercancel`?this.lastMoveEventInfo:Ml(t,this.transformPagePoint),this.history);this.startEvent&&n&&n(e,a),r&&r(e,a)},!Ki(e))return;this.dragSnapToOrigin=i,this.handlers=t,this.transformPagePoint=n,this.distanceThreshold=a,this.contextWindow=r||window;let s=Ml(wl(e),this.transformPagePoint),{point:c}=s,{timestamp:l}=Re;this.history=[{...c,timestamp:l}];let{onSessionStart:u}=t;u&&u(e,Pl(s,this.history));let d={passive:!0,capture:!0};this.removeListeners=ce(El(this.contextWindow,`pointermove`,this.handlePointerMove,d),El(this.contextWindow,`pointerup`,this.handlePointerUp,d),El(this.contextWindow,`pointercancel`,this.handlePointerUp,d)),o&&this.startScrollTracking(o)}startScrollTracking(e){let t=e.parentElement;for(;t;){let e=getComputedStyle(t);(Al.has(e.overflowX)||Al.has(e.overflowY))&&this.scrollPositions.set(t,{x:t.scrollLeft,y:t.scrollTop}),t=t.parentElement}this.scrollPositions.set(window,{x:window.scrollX,y:window.scrollY}),window.addEventListener(`scroll`,this.onElementScroll,{capture:!0}),window.addEventListener(`scroll`,this.onWindowScroll),this.removeScrollListeners=()=>{window.removeEventListener(`scroll`,this.onElementScroll,{capture:!0}),window.removeEventListener(`scroll`,this.onWindowScroll)}}handleScroll(e){let t=this.scrollPositions.get(e);if(!t)return;let n=e===window,r=n?{x:window.scrollX,y:window.scrollY}:{x:e.scrollLeft,y:e.scrollTop},i={x:r.x-t.x,y:r.y-t.y};(i.x!==0||i.y!==0)&&(n?this.lastMoveEventInfo&&(this.lastMoveEventInfo.point.x+=i.x,this.lastMoveEventInfo.point.y+=i.y):this.history.length>0&&(this.history[0].x-=i.x,this.history[0].y-=i.y),this.scrollPositions.set(e,r),k.update(this.updatePoint,!0))}updateHandlers(e){this.handlers=e}end(){this.removeListeners&&this.removeListeners(),this.removeScrollListeners&&this.removeScrollListeners(),this.scrollPositions.clear(),Le(this.updatePoint)}};function Ml(e,t){return t?{point:t(e.point)}:e}function Nl(e,t){return{x:e.x-t.x,y:e.y-t.y}}function Pl({point:e},t){return{point:e,delta:Nl(e,Il(t)),offset:Nl(e,Fl(t)),velocity:Ll(t,.1)}}function Fl(e){return e[0]}function Il(e){return e[e.length-1]}function Ll(e,t){if(e.length<2)return{x:0,y:0};let n=e.length-1,r=null,i=Il(e);for(;n>=0&&(r=e[n],!(i.timestamp-r.timestamp>D(t)));)n--;if(!r)return{x:0,y:0};r===e[0]&&e.length>2&&i.timestamp-r.timestamp>D(t)*2&&(r=e[1]);let a=ue(i.timestamp-r.timestamp);if(a===0)return{x:0,y:0};let o={x:(i.x-r.x)/a,y:(i.y-r.y)/a};return o.x===1/0&&(o.x=0),o.y===1/0&&(o.y=0),o}function Rl(e,{min:t,max:n},r){return t!==void 0&&e<t?e=r?M(t,e,r.min):Math.max(e,t):n!==void 0&&e>n&&(e=r?M(n,e,r.max):Math.min(e,n)),e}function zl(e,t,n){return{min:t===void 0?void 0:e.min+t,max:n===void 0?void 0:e.max+n-(e.max-e.min)}}function Bl(e,{top:t,left:n,bottom:r,right:i}){return{x:zl(e.x,n,i),y:zl(e.y,t,r)}}function W(e,t){let n=t.min-e.min,r=t.max-e.max;return t.max-t.min<e.max-e.min&&([n,r]=[r,n]),{min:n,max:r}}function G(e,t){return{x:W(e.x,t.x),y:W(e.y,t.y)}}function K(e,t){let n=.5,r=ts(e),i=ts(t);return i>r?n=le(t.min,t.max-r,e.min):r>i&&(n=le(e.min,e.max-i,t.min)),ne(0,1,n)}function q(e,t){let n={};return t.min!==void 0&&(n.min=t.min-e.min),t.max!==void 0&&(n.max=t.max-e.min),n}var J=.35;function Vl(e=J){return e===!1?e=0:e===!0&&(e=J),{x:Hl(e,`left`,`right`),y:Hl(e,`top`,`bottom`)}}function Hl(e,t,n){return{min:Ul(e,t),max:Ul(e,n)}}function Ul(e,t){return typeof e==`number`?e:e[t]||0}var Wl=new WeakMap,Gl=class{constructor(e){this.openDragLock=null,this.isDragging=!1,this.currentDirection=null,this.originPoint={x:0,y:0},this.constraints=!1,this.hasMutatedConstraints=!1,this.elastic=L(),this.latestPointerEvent=null,this.latestPanInfo=null,this.visualElement=e}start(e,{snapToCursor:t=!1,distanceThreshold:n}={}){let{presenceContext:r}=this.visualElement;if(r&&r.isPresent===!1)return;let i=e=>{t&&this.snapToCursor(wl(e).point),this.stopAnimation()},a=(e,t)=>{let{drag:n,dragPropagation:r,onDragStart:i}=this.getProps();if(n&&!r&&(this.openDragLock&&this.openDragLock(),this.openDragLock=Vi(n),!this.openDragLock))return;this.latestPointerEvent=e,this.latestPanInfo=t,this.isDragging=!0,this.currentDirection=null,this.resolveConstraints(),this.visualElement.projection&&(this.visualElement.projection.isAnimationBlocked=!0,this.visualElement.projection.target=void 0),Cs(e=>{let t=this.getAxisMotionValue(e).get()||0;if(dt.test(t)){let{projection:n}=this.visualElement;if(n&&n.layout){let r=n.layout.layoutBox[e];r&&(t=ts(r)*(parseFloat(t)/100))}}this.originPoint[e]=t}),i&&k.update(()=>i(e,t),!1,!0),ci(this.visualElement,`transform`);let{animationState:a}=this.visualElement;a&&a.setActive(`whileDrag`,!0)},o=(e,t)=>{this.latestPointerEvent=e,this.latestPanInfo=t;let{dragPropagation:n,dragDirectionLock:r,onDirectionLock:i,onDrag:a}=this.getProps();if(!n&&!this.openDragLock)return;let{offset:o}=t;if(r&&this.currentDirection===null){this.currentDirection=Jl(o),this.currentDirection!==null&&i&&i(this.currentDirection);return}this.updateAxis(`x`,t.point,o),this.updateAxis(`y`,t.point,o),this.visualElement.render(),a&&k.update(()=>a(e,t),!1,!0)},s=(e,t)=>{this.latestPointerEvent=e,this.latestPanInfo=t,this.stop(e,t),this.latestPointerEvent=null,this.latestPanInfo=null},c=()=>{let{dragSnapToOrigin:e}=this.getProps();(e||this.constraints)&&this.startAnimation({x:0,y:0})},{dragSnapToOrigin:l}=this.getProps();this.panSession=new jl(e,{onSessionStart:i,onStart:a,onMove:o,onSessionEnd:s,resumeAnimation:c},{transformPagePoint:this.visualElement.getTransformPagePoint(),dragSnapToOrigin:l,distanceThreshold:n,contextWindow:Dl(this.visualElement),element:this.visualElement.current})}stop(e,t){let n=e||this.latestPointerEvent,r=t||this.latestPanInfo,i=this.isDragging;if(this.cancel(),!i||!r||!n)return;let{velocity:a}=r;this.startAnimation(a);let{onDragEnd:o}=this.getProps();o&&k.postRender(()=>o(n,r))}cancel(){this.isDragging=!1;let{projection:e,animationState:t}=this.visualElement;e&&(e.isAnimationBlocked=!1),this.endPanSession();let{dragPropagation:n}=this.getProps();!n&&this.openDragLock&&(this.openDragLock(),this.openDragLock=null),t&&t.setActive(`whileDrag`,!1)}endPanSession(){this.panSession&&this.panSession.end(),this.panSession=void 0}updateAxis(e,t,n){let{drag:r}=this.getProps();if(!n||!ql(e,r,this.currentDirection))return;let i=this.getAxisMotionValue(e),a=this.originPoint[e]+n[e];this.constraints&&this.constraints[e]&&(a=Rl(a,this.constraints[e],this.elastic[e])),i.set(a)}resolveConstraints(){let{dragConstraints:e,dragElastic:t}=this.getProps(),n=this.visualElement.projection&&!this.visualElement.projection.layout?this.visualElement.projection.measure(!1):this.visualElement.projection?.layout,r=this.constraints;e&&dl(e)?this.constraints||=this.resolveRefConstraints():this.constraints=e&&n?Bl(n.layoutBox,e):!1,this.elastic=Vl(t),r!==this.constraints&&!dl(e)&&n&&this.constraints&&!this.hasMutatedConstraints&&Cs(e=>{this.constraints!==!1&&this.getAxisMotionValue(e)&&(this.constraints[e]=q(n.layoutBox[e],this.constraints[e]))})}resolveRefConstraints(){let{dragConstraints:e,onMeasureDragConstraints:t}=this.getProps();if(!e||!dl(e))return!1;let n=e.current,{projection:r}=this.visualElement;if(!r||!r.layout)return!1;r.root&&(r.root.scroll=void 0,r.root.updateScroll());let i=z(n,r.root,this.visualElement.getTransformPagePoint()),a=G(r.layout.layoutBox,i);if(t){let e=t(Za(a));this.hasMutatedConstraints=!!e,e&&(a=Xa(e))}return a}startAnimation(e){let{drag:t,dragMomentum:n,dragElastic:r,dragTransition:i,dragSnapToOrigin:a,onDragTransitionEnd:o}=this.getProps(),s=this.constraints||{},c=Cs(o=>{if(!ql(o,t,this.currentDirection))return;let c=s&&s[o]||{};(a===!0||a===o)&&(c={min:0,max:0});let l=r?200:1e6,u=r?40:1e7,d={type:`inertia`,velocity:n?e[o]:0,bounceStiffness:l,bounceDamping:u,timeConstant:750,restDelta:1,restSpeed:10,...i,...c};return this.startAxisValueAnimation(o,d)});return Promise.all(c).then(o)}startAxisValueAnimation(e,t){let n=this.getAxisMotionValue(e);return ci(this.visualElement,e),n.start(Jr(e,n,0,t,this.visualElement,!1))}stopAnimation(){Cs(e=>this.getAxisMotionValue(e).stop())}getAxisMotionValue(e){let t=`_drag${e.toUpperCase()}`;return this.visualElement.getProps()[t]||this.visualElement.getValue(e,this.visualElement.latestValues[e]??0)}snapToCursor(e){Cs(t=>{let{drag:n}=this.getProps();if(!ql(t,n,this.currentDirection))return;let{projection:r}=this.visualElement,i=this.getAxisMotionValue(t);if(r&&r.layout){let{min:n,max:a}=r.layout.layoutBox[t],o=i.get()||0;i.set(e[t]-M(n,a,.5)+o)}})}scalePositionWithinConstraints(){if(!this.visualElement.current)return;let{drag:e,dragConstraints:t}=this.getProps(),{projection:n}=this.visualElement;if(!dl(t)||!n||!this.constraints)return;this.stopAnimation();let r={x:0,y:0};Cs(e=>{let t=this.getAxisMotionValue(e);if(t&&this.constraints!==!1){let n=t.get();r[e]=K({min:n,max:n},this.constraints[e])}});let{transformTemplate:i}=this.visualElement.getProps();this.visualElement.current.style.transform=i?i({},``):`none`,n.root&&n.root.updateScroll(),n.updateLayout(),this.constraints=!1,this.resolveConstraints(),Cs(t=>{if(!ql(t,e,null))return;let n=this.getAxisMotionValue(t),{min:i,max:a}=this.constraints[t];n.set(M(i,a,r[t]))}),this.visualElement.render()}addListeners(){if(!this.visualElement.current)return;Wl.set(this.visualElement,this);let e=this.visualElement.current,t=El(e,`pointerdown`,t=>{let{drag:n,dragListener:r=!0}=this.getProps(),i=t.target,a=i!==e&&Xi(i);n&&r&&!a&&this.start(t)}),n,r=()=>{let{dragConstraints:t}=this.getProps();dl(t)&&t.current&&(this.constraints=this.resolveRefConstraints(),n||=Kl(e,t.current,()=>this.scalePositionWithinConstraints()))},{projection:i}=this.visualElement,a=i.addEventListener(`measure`,r);i&&!i.layout&&(i.root&&i.root.updateScroll(),i.updateLayout()),k.read(r);let o=Ps(window,`resize`,()=>this.scalePositionWithinConstraints()),s=i.addEventListener(`didUpdate`,(({delta:e,hasLayoutChanged:t})=>{this.isDragging&&t&&(Cs(t=>{let n=this.getAxisMotionValue(t);n&&(this.originPoint[t]+=e[t].translate,n.set(n.get()+e[t].translate))}),this.visualElement.render())}));return()=>{o(),t(),a(),s&&s(),n&&n()}}getProps(){let e=this.visualElement.getProps(),{drag:t=!1,dragDirectionLock:n=!1,dragPropagation:r=!1,dragConstraints:i=!1,dragElastic:a=J,dragMomentum:o=!0}=e;return{...e,drag:t,dragDirectionLock:n,dragPropagation:r,dragConstraints:i,dragElastic:a,dragMomentum:o}}};function Y(e){let t=!0;return()=>{if(t){t=!1;return}e()}}function Kl(e,t,n){let r=va(e,Y(n)),i=va(t,Y(n));return()=>{r(),i()}}function ql(e,t,n){return(t===!0||t===e)&&(n===null||n===e)}function Jl(e,t=10){let n=null;return Math.abs(e.y)>t?n=`y`:Math.abs(e.x)>t&&(n=`x`),n}var Yl=class extends Ya{constructor(e){super(e),this.removeGroupControls=se,this.removeListeners=se,this.controls=new Gl(e)}mount(){let{dragControls:e}=this.node.getProps();e&&(this.removeGroupControls=e.subscribe(this.controls)),this.removeListeners=this.controls.addListeners()||se}update(){let{dragControls:e}=this.node.getProps(),{dragControls:t}=this.node.prevProps||{};e!==t&&(this.removeGroupControls(),e&&(this.removeGroupControls=e.subscribe(this.controls)))}unmount(){this.removeGroupControls(),this.removeListeners(),this.controls.isDragging||this.controls.endPanSession()}},Xl=e=>(t,n)=>{e&&k.update(()=>e(t,n),!1,!0)},Zl=class extends Ya{constructor(){super(...arguments),this.removePointerDownListener=se}onPointerDown(e){this.session=new jl(e,this.createPanHandlers(),{transformPagePoint:this.node.getTransformPagePoint(),contextWindow:Dl(this.node)})}createPanHandlers(){let{onPanSessionStart:e,onPanStart:t,onPan:n,onPanEnd:r}=this.node.getProps();return{onSessionStart:Xl(e),onStart:Xl(t),onMove:Xl(n),onEnd:(e,t)=>{delete this.session,r&&k.postRender(()=>r(e,t))}}}mount(){this.removePointerDownListener=El(this.node.current,`pointerdown`,e=>this.onPointerDown(e))}update(){this.session&&this.session.updateHandlers(this.createPanHandlers())}unmount(){this.removePointerDownListener(),this.session&&this.session.end()}},Ql=!1,$l=class extends _.Component{componentDidMount(){let{visualElement:e,layoutGroup:t,switchLayoutGroup:n,layoutId:r}=this.props,{projection:i}=e;i&&(t.group&&t.group.add(i),n&&n.register&&r&&n.register(i),Ql&&i.root.didUpdate(),i.addEventListener(`animationComplete`,()=>{this.safeToRemove()}),i.setOptions({...i.options,layoutDependency:this.props.layoutDependency,onExitComplete:()=>this.safeToRemove()})),Bs.hasEverUpdated=!0}getSnapshotBeforeUpdate(e){let{layoutDependency:t,visualElement:n,drag:r,isPresent:i}=this.props,{projection:a}=n;return a?(a.isPresent=i,e.layoutDependency!==t&&a.setOptions({...a.options,layoutDependency:t}),Ql=!0,r||e.layoutDependency!==t||t===void 0||e.isPresent!==i?a.willUpdate():this.safeToRemove(),e.isPresent!==i&&(i?a.promote():a.relegate()||k.postRender(()=>{let e=a.getStack();(!e||!e.members.length)&&this.safeToRemove()})),null):null}componentDidUpdate(){let{visualElement:e,layoutAnchor:t}=this.props,{projection:n}=e;n&&(n.options.layoutAnchor=t,n.root.didUpdate(),F.postRender(()=>{!n.currentAnimation&&n.isLead()&&this.safeToRemove()}))}componentWillUnmount(){let{visualElement:e,layoutGroup:t,switchLayoutGroup:n}=this.props,{projection:r}=e;Ql=!0,r&&(r.scheduleCheckAfterUnmount(),t&&t.group&&t.group.remove(r),n&&n.deregister&&n.deregister(r))}safeToRemove(){let{safeToRemove:e}=this.props;e&&e()}render(){return null}};function eu(e){let[t,n]=jc(),r=(0,_.useContext)(x);return(0,V.jsx)($l,{...e,layoutGroup:r,switchLayoutGroup:(0,_.useContext)(ul),isPresent:t,safeToRemove:n})}var tu={pan:{Feature:Zl},drag:{Feature:Yl,ProjectionNode:Sc,MeasureLayout:eu}};function nu(e,t,n){let{props:r}=e;e.animationState&&r.whileHover&&e.animationState.setActive(`whileHover`,n===`Start`);let i=r[`onHover`+n];i&&k.postRender(()=>i(t,wl(t)))}var ru=class extends Ya{mount(){let{current:e}=this.node;e&&(this.unmount=Wi(e,(e,t)=>(nu(this.node,t,`Start`),e=>nu(this.node,e,`End`))))}unmount(){}},iu=class extends Ya{constructor(){super(...arguments),this.isActive=!1}onFocus(){let e=!1;try{e=this.node.current.matches(`:focus-visible`)}catch{e=!0}!e||!this.node.animationState||(this.node.animationState.setActive(`whileFocus`,!0),this.isActive=!0)}onBlur(){!this.isActive||!this.node.animationState||(this.node.animationState.setActive(`whileFocus`,!1),this.isActive=!1)}mount(){this.unmount=ce(Ps(this.node.current,`focus`,()=>this.onFocus()),Ps(this.node.current,`blur`,()=>this.onBlur()))}unmount(){}};function au(e,t,n){let{props:r}=e;if(e.current instanceof HTMLButtonElement&&e.current.disabled)return;e.animationState&&r.whileTap&&e.animationState.setActive(`whileTap`,n===`Start`);let i=r[`onTap`+(n===`End`?``:n)];i&&k.postRender(()=>i(t,wl(t)))}var ou=class extends Ya{mount(){let{current:e}=this.node;if(!e)return;let{globalTapTarget:t,propagate:n}=this.node.props;this.unmount=ra(e,(e,t)=>(au(this.node,t,`Start`),(e,{success:t})=>au(this.node,e,t?`End`:`Cancel`)),{useGlobalTarget:t,stopPropagation:n?.tap===!1})}unmount(){}},su=new WeakMap,cu=new WeakMap,lu=e=>{let t=su.get(e.target);t&&t(e)},uu=e=>{e.forEach(lu)};function du({root:e,...t}){let n=e||document;cu.has(n)||cu.set(n,{});let r=cu.get(n),i=JSON.stringify(t);return r[i]||(r[i]=new IntersectionObserver(uu,{root:e,...t})),r[i]}function fu(e,t,n){let r=du(t);return su.set(e,n),r.observe(e),()=>{su.delete(e),r.unobserve(e)}}var pu={some:0,all:1},mu=class extends Ya{constructor(){super(...arguments),this.hasEnteredView=!1,this.isInView=!1}startObserver(){this.stopObserver?.();let{viewport:e={}}=this.node.getProps(),{root:t,margin:n,amount:r=`some`,once:i}=e,a={root:t?t.current:void 0,rootMargin:n,threshold:typeof r==`number`?r:pu[r]},o=e=>{let{isIntersecting:t}=e;if(this.isInView===t||(this.isInView=t,i&&!t&&this.hasEnteredView))return;t&&(this.hasEnteredView=!0),this.node.animationState&&this.node.animationState.setActive(`whileInView`,t);let{onViewportEnter:n,onViewportLeave:r}=this.node.getProps(),a=t?n:r;a&&a(e)};this.stopObserver=fu(this.node.current,a,o)}mount(){this.startObserver()}update(){if(typeof IntersectionObserver>`u`)return;let{props:e,prevProps:t}=this.node;[`amount`,`margin`,`root`].some(hu(e,t))&&this.startObserver()}unmount(){this.stopObserver?.(),this.hasEnteredView=!1,this.isInView=!1}};function hu({viewport:e={}},{viewport:t={}}={}){return n=>e[n]!==t[n]}var gu={inView:{Feature:mu},tap:{Feature:ou},focus:{Feature:iu},hover:{Feature:ru}},_u={layout:{ProjectionNode:Sc,MeasureLayout:eu}},vu=yl({...Cl,...gu,...tu,..._u},bl);function yu(e){return typeof window>`u`?!1:e?sr():or()}var bu=50,xu=()=>({current:0,offset:[],progress:0,scrollLength:0,targetOffset:0,targetLength:0,containerLength:0,velocity:0}),Su=()=>({time:0,x:xu(),y:xu()}),Cu={x:{length:`Width`,position:`Left`},y:{length:`Height`,position:`Top`}};function wu(e,t,n,r){let i=n[t],{length:a,position:o}=Cu[t],s=i.current,c=n.time;i.current=Math.abs(e[`scroll${o}`]),i.scrollLength=e[`scroll${a}`]-e[`client${a}`],i.offset.length=0,i.offset[0]=0,i.offset[1]=i.scrollLength,i.progress=le(0,i.scrollLength,i.current);let l=r-c;i.velocity=l>bu?0:de(i.current-s,l)}function Tu(e,t,n){wu(e,`x`,t,n),wu(e,`y`,t,n),t.time=n}function Eu(e,t){let n={x:0,y:0},r=e;for(;r&&r!==t;)if(P(r))n.x+=r.offsetLeft,n.y+=r.offsetTop,r=r.offsetParent;else if(r.tagName===`svg`){let e=r.getBoundingClientRect();r=r.parentElement;let t=r.getBoundingClientRect();n.x+=e.left-t.left,n.y+=e.top-t.top}else if(r instanceof SVGGraphicsElement){let{x:e,y:t}=r.getBBox();n.x+=e,n.y+=t;let i=null,a=r.parentNode;for(;!i;)a.tagName===`svg`&&(i=a),a=r.parentNode;r=i}else break;return n}var Du={start:0,center:.5,end:1};function Ou(e,t,n=0){let r=0;if(e in Du&&(e=Du[e]),typeof e==`string`){let t=parseFloat(e);e.endsWith(`px`)?r=t:e.endsWith(`%`)?e=t/100:e.endsWith(`vw`)?r=t/100*document.documentElement.clientWidth:e.endsWith(`vh`)?r=t/100*document.documentElement.clientHeight:e=t}return typeof e==`number`&&(r=t*e),n+r}var ku=[0,0];function Au(e,t,n,r){let i=Array.isArray(e)?e:ku,a=0,o=0;return typeof e==`number`?i=[e,e]:typeof e==`string`&&(e=e.trim(),i=e.includes(` `)?e.split(` `):[e,Du[e]?e:`0`]),a=Ou(i[0],n,r),o=Ou(i[1],t),a-o}var ju={Enter:[[0,1],[1,1]],Exit:[[0,0],[1,0]],Any:[[1,0],[0,1]],All:[[0,0],[1,1]]},Mu={x:0,y:0};function Nu(e){return`getBBox`in e&&e.tagName!==`svg`?e.getBBox():{width:e.clientWidth,height:e.clientHeight}}function Pu(e,t,n){let{offset:r=ju.All}=n,{target:i=e,axis:a=`y`}=n,o=a===`y`?`height`:`width`,s=i===e?Mu:Eu(i,e),c=i===e?{width:e.scrollWidth,height:e.scrollHeight}:Nu(i),l={width:e.clientWidth,height:e.clientHeight};t[a].offset.length=0;let u=!t[a].interpolate,d=r.length;for(let e=0;e<d;e++){let n=Au(r[e],l[o],c[o],s[a]);!u&&n!==t[a].interpolatorOffsets[e]&&(u=!0),t[a].offset[e]=n}u&&(t[a].interpolate=hn(t[a].offset,_n(r),{clamp:!1}),t[a].interpolatorOffsets=[...t[a].offset]),t[a].progress=ne(0,1,t[a].interpolate(t[a].current))}function Fu(e,t=e,n){if(n.x.targetOffset=0,n.y.targetOffset=0,t!==e){let r=t;for(;r&&r!==e;)n.x.targetOffset+=r.offsetLeft,n.y.targetOffset+=r.offsetTop,r=r.offsetParent}n.x.targetLength=t===e?t.scrollWidth:t.clientWidth,n.y.targetLength=t===e?t.scrollHeight:t.clientHeight,n.x.containerLength=e.clientWidth,n.y.containerLength=e.clientHeight}function Iu(e,t,n,r={}){return{measure:t=>{Fu(e,r.target,n),Tu(e,n,t),(r.offset||r.target)&&Pu(e,n,r)},notify:()=>t(n)}}var Lu=new WeakMap,Ru=new WeakMap,zu=new WeakMap,Bu=new WeakMap,Vu=new WeakMap,Hu=e=>e===document.scrollingElement?window:e;function Uu(e,{container:t=document.scrollingElement,trackContentSize:n=!1,...r}={}){if(!t)return se;let i=zu.get(t);i||(i=new Set,zu.set(t,i));let a=Iu(t,e,Su(),r);if(i.add(a),!Lu.has(t)){let e=()=>{for(let e of i)e.measure(Re.timestamp);k.preUpdate(n)},n=()=>{for(let e of i)e.notify()},r=()=>k.read(e);Lu.set(t,r);let a=Hu(t);window.addEventListener(`resize`,r),t!==document.documentElement&&Ru.set(t,va(t,r)),a.addEventListener(`scroll`,r),r()}if(n&&!Vu.has(t)){let e=Lu.get(t),n={width:t.scrollWidth,height:t.scrollHeight};Bu.set(t,n);let r=k.read(()=>{let r=t.scrollWidth,i=t.scrollHeight;(n.width!==r||n.height!==i)&&(e(),n.width=r,n.height=i)},!0);Vu.set(t,r)}let o=Lu.get(t);return k.read(o,!1,!0),()=>{Le(o);let e=zu.get(t);if(!e||(e.delete(a),e.size))return;let n=Lu.get(t);Lu.delete(t),n&&(Hu(t).removeEventListener(`scroll`,n),Ru.get(t)?.(),window.removeEventListener(`resize`,n));let r=Vu.get(t);r&&(Le(r),Vu.delete(t)),Bu.delete(t)}}var Wu=[[ju.Enter,`entry`],[ju.Exit,`exit`],[ju.Any,`cover`],[ju.All,`contain`]],Gu={start:0,end:1};function X(e){let t=e.trim().split(/\s+/);if(t.length!==2)return;let n=Gu[t[0]],r=Gu[t[1]];if(n!==void 0&&r!==void 0)return[n,r]}function Ku(e){if(e.length!==2)return;let t=[];for(let n of e)if(Array.isArray(n))t.push(n);else if(typeof n==`string`){let e=X(n);if(!e)return;t.push(e)}else return;return t}function qu(e,t){let n=Ku(e);if(!n)return!1;for(let e=0;e<2;e++){let r=n[e],i=t[e];if(r[0]!==i[0]||r[1]!==i[1])return!1}return!0}function Ju(e){if(!e)return{rangeStart:`contain 0%`,rangeEnd:`contain 100%`};for(let[t,n]of Wu)if(qu(e,t))return{rangeStart:`${n} 0%`,rangeEnd:`${n} 100%`}}var Yu=new Map;function Xu(e){let t={value:0};return{currentTime:t,cancel:Uu(n=>{t.value=n[e.axis].progress*100},e)}}function Zu({source:e,container:t,...n}){let{axis:r}=n;e&&(t=e);let i=Yu.get(t);i||(i=new Map,Yu.set(t,i));let a=n.target??`self`,o=i.get(a);o||(o={},i.set(a,o));let s=r+(n.offset??[]).join(`,`);return o[s]||(n.target&&yu(n.target)?Ju(n.offset)?o[s]=new ViewTimeline({subject:n.target,axis:r}):o[s]=Xu({container:t,...n}):yu()?o[s]=new ScrollTimeline({source:t,axis:r}):o[s]=Xu({container:t,...n})),o[s]}function Qu(e,t){let n=Zu(t),r=t.target?Ju(t.offset):void 0,i=t.target?yu(t.target)&&!!r:yu();return e.attachTimeline({timeline:i?n:void 0,...r&&i&&{rangeStart:r.rangeStart,rangeEnd:r.rangeEnd},observe:e=>(e.pause(),ya(t=>{e.time=e.iterationDuration*t},n))})}function $u(e){return e&&(e.target||e.offset)}function ed(e){return e.length===2}function td(e,t){return ed(e)||$u(t)?Uu(n=>{e(n[t.axis].progress,n)},t):ya(e,Zu(t))}function nd(e,{axis:t=`y`,container:n=document.scrollingElement,...r}={}){if(!n)return se;let i={axis:t,container:n,...r};return typeof e==`function`?td(e,i):Qu(e,i)}var rd=()=>({scrollX:Rr(0),scrollY:Rr(0),scrollXProgress:Rr(0),scrollYProgress:Rr(0)}),id=e=>e?!e.current:!1;function ad(e,t,n,r){return{factory:i=>{let a,o=()=>{if(id(n)||id(r)){F.read(o);return}a=nd(i,{...t,axis:e,container:n?.current||void 0,target:r?.current||void 0})};return F.read(o),()=>{zi(o),a?.()}},times:[0,1],keyframes:[0,1],ease:e=>e,duration:1}}function od(e,t){return typeof window>`u`?!1:e?sr()&&!!Ju(t):or()}function sd({container:e,target:t,...n}={}){let r=S(rd);od(t,n.offset)&&(r.scrollXProgress.accelerate=ad(`x`,n,e,t),r.scrollYProgress.accelerate=ad(`y`,n,e,t));let i=(0,_.useRef)(null),a=(0,_.useRef)(!1),o=(0,_.useCallback)(()=>(i.current=nd((e,{x:t,y:n})=>{r.scrollX.set(t.current),r.scrollXProgress.set(t.progress),r.scrollY.set(n.current),r.scrollYProgress.set(n.progress)},{...n,container:e?.current||void 0,target:t?.current||void 0}),()=>{i.current?.()}),[e,t,JSON.stringify(n.offset)]);return C(()=>{if(a.current=!1,id(e)||id(t)){a.current=!0;return}return o()},[o]),(0,_.useEffect)(()=>{if(!a.current)return;let n,r=()=>{let r=id(e),i=id(t);!r&&!i&&(n=o())};return F.read(r),()=>{zi(r),n?.()}},[o]),r}function cd(e){let t=S(()=>Rr(e)),{isStatic:n}=(0,_.useContext)(Cc);if(n){let[,n]=(0,_.useState)(e);(0,_.useEffect)(()=>t.on(`change`,n),[])}return t}function ld(e,t){let n=cd(t()),r=()=>n.set(t());return r(),C(()=>{let t=()=>k.preRender(r,!1,!0),n=e.map(e=>e.on(`change`,t));return()=>{n.forEach(e=>e()),Le(r)}}),n}function ud(e){Ir.current=[],e();let t=ld(Ir.current,e);return Ir.current=void 0,t}function dd(e,t,n,r){if(typeof e==`function`)return ud(e);if(n!==void 0&&!Array.isArray(n)&&typeof t!=`function`)return pd(e,t,n,r);let i=typeof t==`function`?t:Sa(t,n,r),a=Array.isArray(e)?fd(e,i):fd([e],([e])=>i(e)),o=Array.isArray(e)?void 0:e.accelerate;return o&&!o.isTransformed&&typeof t!=`function`&&Array.isArray(n)&&r?.clamp!==!1&&(a.accelerate={...o,times:t,keyframes:n,isTransformed:!0,...r?.ease?{ease:r.ease}:{}}),a}function fd(e,t){let n=S(()=>[]);return ld(e,()=>{n.length=0;let r=e.length;for(let t=0;t<r;t++)n[t]=e[t].get();return t(n)})}function pd(e,t,n,r){let i=S(()=>Object.keys(n)),a=S(()=>({}));for(let o of i)a[o]=dd(e,t,n[o],r);return a}function md(e,t={}){let{isStatic:n}=(0,_.useContext)(Cc),r=()=>oi(e)?e.get():e;if(n)return dd(r);let i=cd(r());return(0,_.useInsertionEffect)(()=>Ca(i,e,t),[i,JSON.stringify(t)]),i}function hd(e,t={}){return md(e,{type:`spring`,...t})}var Z=vu,gd=`data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20500%20500'%20width='100%25'%20height='100%25'%3e%3cdefs%3e%3c!--%20Gradient%20for%20soft,%20realistic%20shading%20--%3e%3clinearGradient%20id='sakuraGradient'%20x1='0%25'%20y1='100%25'%20x2='0%25'%20y2='0%25'%3e%3cstop%20offset='0%25'%20stop-color='%23f7a8b8'%20/%3e%3cstop%20offset='40%25'%20stop-color='%23ffb7c5'%20/%3e%3cstop%20offset='85%25'%20stop-color='%23ffd1dc'%20/%3e%3cstop%20offset='100%25'%20stop-color='%23fff0f5'%20/%3e%3c/linearGradient%3e%3c!--%20Subtle%20inner%20highlight%20for%20depth%20--%3e%3clinearGradient%20id='innerShadow'%20x1='0%25'%20y1='0%25'%20x2='100%25'%20y2='100%25'%3e%3cstop%20offset='0%25'%20stop-color='%23e88299'%20stop-opacity='0.6'%20/%3e%3cstop%20offset='50%25'%20stop-color='%23f7a8b8'%20stop-opacity='0.0'%20/%3e%3c/linearGradient%3e%3c!--%20Soft%20drop%20shadow%20filter%20--%3e%3cfilter%20id='softShadow'%20x='-20%25'%20y='-20%25'%20width='140%25'%20height='140%25'%3e%3cfeDropShadow%20dx='2'%20dy='8'%20stdDeviation='6'%20flood-color='%238b4556'%20flood-opacity='0.15'%20/%3e%3c/filter%3e%3c/defs%3e%3c!--%20Sakura%20Petal%20Path%20--%3e%3cg%20filter='url(%23softShadow)'%20transform='rotate(-15%20250%20250)'%3e%3c!--%20Base%20Petal%20Shape%20--%3e%3cpath%20d='M%20250,420%20C%20180,380%20100,280%20110,180%20C%20115,130%20150,80%20200,70%20C%20225,65%20242,78%20250,88%20C%20258,78%20275,65%20300,70%20C%20350,80%20385,130%20390,180%20C%20400,280%20320,380%20250,420%20Z'%20fill='url(%23sakuraGradient)'%20/%3e%3c!--%20Notch%20Detail%20Overlay%20for%20realistic%20curve%20--%3e%3cpath%20d='M%20200,70%20C%20225,65%20242,78%20250,88%20C%20258,78%20275,65%20300,70%20C%20280,85%20265,92%20250,90%20C%20235,92%20220,85%20200,70%20Z'%20fill='%23fcaebe'%20opacity='0.5'%20/%3e%3c!--%20Delicate%20Vein%20Lines%20--%3e%3cg%20stroke='%23e57388'%20stroke-width='1.5'%20stroke-linecap='round'%20opacity='0.35'%3e%3c!--%20Center%20Vein%20--%3e%3cpath%20d='M%20250,400%20Q%20250,250%20250,110'%20/%3e%3c!--%20Side%20Veins%20(Left)%20--%3e%3cpath%20d='M%20250,360%20Q%20220,300%20180,250'%20/%3e%3cpath%20d='M%20250,310%20Q%20210,240%20160,180'%20/%3e%3cpath%20d='M%20250,240%20Q%20215,180%20175,130'%20/%3e%3c!--%20Side%20Veins%20(Right)%20--%3e%3cpath%20d='M%20250,360%20Q%20280,300%20320,250'%20/%3e%3cpath%20d='M%20250,310%20Q%20290,240%20340,180'%20/%3e%3cpath%20d='M%20250,240%20Q%20285,180%20325,130'%20/%3e%3c/g%3e%3c!--%20Base%20Glow/Accent%20(Narrow%20Pink%20Tip%20at%20Bottom)%20--%3e%3cpath%20d='M%20250,420%20C%20235,390%20220,350%20225,320%20C%20240,335%20260,335%20275,320%20C%20280,350%20265,390%20250,420%20Z'%20fill='%23db5a75'%20opacity='0.25'%20/%3e%3c/g%3e%3c/svg%3e`,_d=Array.from({length:18},(e,t)=>({id:t,left:Math.random()*100,size:12+Math.random()*18,duration:6+Math.random()*6,delay:Math.random()*5,drift:-80+Math.random()*160,rotation:180+Math.random()*360}));function vd(){return(0,V.jsx)(`div`,{className:`pointer-events-none absolute inset-0 overflow-hidden`,children:_d.map(e=>(0,V.jsx)(Z.img,{src:gd,alt:``,className:`absolute`,style:{left:`${e.left}%`,width:`${e.size}px`},initial:{y:`-10vh`,opacity:0,rotate:0},animate:{y:`110vh`,x:[0,e.drift,-e.drift/2,e.drift],opacity:[0,.8,.9,0],rotate:e.rotation},transition:{duration:e.duration,delay:e.delay,repeat:1/0,ease:`linear`}},e.id))})}var yd=`/decimalMovie/assets/sakuraTree-D2Jo7XSD.svg`,Q=`/decimalMovie/assets/opening-D9vw82Mu.mp3`;function bd(){let e=(0,_.useRef)(null),[t,n]=(0,_.useState)(!0),[r,i]=(0,_.useState)(!1);return(0,_.useEffect)(()=>{r&&(async()=>{try{e.current.volume=.5,await e.current.play()}catch{console.log(`Music could not be started.`)}})()},[r]),(0,V.jsxs)(`section`,{className:`\r
         relative\r
         flex\r
-        min-h-[100svh]\r
+        min-h-screen\r
         w-full\r
         items-center\r
         justify-center\r
         overflow-hidden\r
         bg-black\r
         text-[#f3eadb]\r
-      `,children:[(0,V.jsx)(`audio`,{ref:e,src:Q,loop:!0,preload:`auto`}),(0,V.jsx)(Z.img,{src:yd,alt:``,initial:{opacity:0,x:-40,y:-20,rotate:-1},animate:{opacity:.9,x:[0,2,-2,1,0],y:[0,-1,1,-1,0],rotate:[-1,.5,-.7,.3,-1]},transition:{opacity:{duration:2.5,ease:`easeOut`},x:{duration:8,repeat:1/0,ease:`easeInOut`},y:{duration:7,repeat:1/0,ease:`easeInOut`},rotate:{duration:9,repeat:1/0,ease:`easeInOut`}},className:`\r
-    pointer-events-none\r
-    absolute\r
-    left-0\r
-    top-0\r
-    z-[1]\r
-    h-auto\r
-    w-[42vw]\r
-    max-w-[260px]\r
-    origin-bottom-left\r
-  `}),(0,V.jsx)(vd,{}),(0,V.jsx)(`div`,{className:`\r
+      `,children:[(0,V.jsx)(`audio`,{ref:e,src:Q,loop:!0,preload:`auto`}),(0,V.jsx)(Z.img,{src:yd,alt:``,initial:{opacity:0,x:-40,y:-20,rotate:-1},animate:{opacity:r?.9:0,x:[0,2,-2,1,0],y:[0,-1,1,-1,0],rotate:[-1,.5,-.7,.3,-1]},transition:{opacity:{duration:2.5,ease:`easeOut`},x:{duration:8,repeat:1/0,ease:`easeInOut`},y:{duration:7,repeat:1/0,ease:`easeInOut`},rotate:{duration:9,repeat:1/0,ease:`easeInOut`}},className:`\r
+          pointer-events-none\r
+          absolute\r
+          left-0\r
+          top-0\r
+          z-[1]\r
+          h-auto\r
+          w-[42vw]\r
+          max-w-[260px]\r
+          origin-bottom-left\r
+        `}),r&&(0,V.jsx)(vd,{}),(0,V.jsx)(`div`,{className:`\r
           pointer-events-none\r
           absolute\r
           inset-0\r
           z-[5]\r
-          bg-[radial-gradient(circle_at_center,transparent_15%,rgba(0,0,0,0.7)_100%)]\r
-        `}),(0,V.jsxs)(`div`,{className:`\r
-          relative\r
-          z-10\r
-          flex\r
-          flex-col\r
-          items-center\r
-          text-center\r
-        `,children:[(0,V.jsx)(Z.h1,{initial:{opacity:0,y:25,filter:`blur(12px)`},animate:{opacity:1,y:0,filter:`blur(0px)`},transition:{duration:2,ease:[.22,1,.36,1]},className:`\r
-            text-[clamp(3.5rem,16vw,7rem)]\r
-            font-light\r
-            tracking-[0.12em]\r
-          `,children:`二十歳になる前に`}),(0,V.jsx)(Z.p,{initial:{opacity:0,y:12},animate:{opacity:.7,y:0},transition:{duration:1.5,delay:.8,ease:`easeOut`},className:`\r
-            mt-3\r
-            text-[0.7rem]\r
-            uppercase\r
-            tracking-[0.5em]\r
-            sm:text-xs\r
-          `,children:`Before You Turn 20`})]}),(0,V.jsxs)(Z.div,{initial:{opacity:0},animate:{opacity:[.25,1,.25]},transition:{duration:1.8,repeat:1/0,ease:`easeInOut`,delay:2},className:`\r
-          absolute\r
-          bottom-8\r
-          left-1/2\r
-          z-10\r
-          flex\r
-          -translate-x-1/2\r
-          flex-col\r
-          items-center\r
-          gap-2\r
-        `,children:[(0,V.jsx)(`div`,{className:`\r
-            relative\r
-            h-9\r
-            w-5\r
-            rounded-full\r
-            border\r
-            border-[#f3eadb]/60\r
-          `,children:(0,V.jsx)(Z.div,{animate:{y:[3,14,3]},transition:{duration:1.5,repeat:1/0,ease:`easeInOut`},className:`\r
+          bg-[radial-gradient(circle_at_center,transparent_10%,rgba(0,0,0,0.85)_100%)]\r
+        `}),(0,V.jsx)(Pc,{children:r&&(0,V.jsxs)(Z.div,{initial:{opacity:0},animate:{opacity:1},transition:{duration:1.2},className:`\r
+              relative\r
+              z-10\r
+              flex\r
+              w-full\r
+              max-w-3xl\r
+              flex-col\r
+              items-center\r
+              px-6\r
+              text-center\r
+            `,children:[(0,V.jsx)(Z.div,{initial:{opacity:0,y:-10},animate:{opacity:.8,y:0},transition:{duration:1.5,ease:`easeOut`},className:`\r
+                mb-7\r
+                text-[10px]\r
+                uppercase\r
+                tracking-[0.45em]\r
+                text-[#f3eadb]/75\r
+                sm:text-xs\r
+              `,children:`12 · 08 · 2026`}),(0,V.jsx)(Z.h1,{initial:{opacity:0,y:25,filter:`blur(12px)`},animate:{opacity:1,y:0,filter:`blur(0px)`},transition:{duration:2,ease:[.22,1,.36,1]},className:`\r
+                text-[clamp(3rem,13vw,6rem)]\r
+                font-light\r
+                tracking-[0.12em]\r
+                text-[#f3eadb]\r
+                drop-shadow-[0_0_20px_rgba(243,234,219,0.15)]\r
+              `,children:`二十歳になる前に`}),(0,V.jsx)(Z.p,{initial:{opacity:0,y:12},animate:{opacity:.75,y:0},transition:{duration:1.5,delay:.8,ease:`easeOut`},className:`\r
+                mt-3\r
+                text-[0.7rem]\r
+                uppercase\r
+                tracking-[0.5em]\r
+                text-[#f3eadb]\r
+                sm:text-xs\r
+              `,children:`Before You Turned Twenty`}),(0,V.jsxs)(Z.div,{initial:{opacity:0,y:25},animate:{opacity:1,y:0},transition:{duration:1.6,delay:1.6,ease:`easeOut`},className:`\r
+                mt-9\r
+                max-w-xl\r
+              `,children:[(0,V.jsxs)(`p`,{className:`\r
+                  text-sm\r
+                  leading-7\r
+                  text-[#f3eadb]/85\r
+                  sm:text-[15px]\r
+                  sm:leading-8\r
+                `,children:[`There was a little girl who didn't know yet`,(0,V.jsx)(`br`,{className:`hidden sm:block`}),`how far her life would take her.`]}),(0,V.jsxs)(`p`,{className:`\r
+                  mt-5\r
+                  text-sm\r
+                  leading-7\r
+                  text-[#f3eadb]/75\r
+                  sm:text-[15px]\r
+                  sm:leading-8\r
+                `,children:[`She didn't know about the dreams she would chase,`,(0,V.jsx)(`br`,{className:`hidden sm:block`}),`the people she would meet,`,(0,V.jsx)(`br`,{className:`hidden sm:block`}),`or the days that would change her.`]}),(0,V.jsx)(`p`,{className:`\r
+                  mt-5\r
+                  text-sm\r
+                  italic\r
+                  leading-7\r
+                  text-[#f3eadb]/70\r
+                  sm:text-[15px]\r
+                  sm:leading-8\r
+                `,children:`She only knew how to live one day at a time.`}),(0,V.jsx)(Z.p,{initial:{opacity:0,scale:.95},animate:{opacity:1,scale:1},transition:{duration:1.4,delay:3.1,ease:[.22,1,.36,1]},className:`\r
+                  mt-7\r
+                  text-base\r
+                  font-light\r
+                  tracking-[0.08em]\r
+                  text-[#f3eadb]\r
+                  drop-shadow-[0_0_15px_rgba(243,234,219,0.18)]\r
+                  sm:text-lg\r
+                `,children:`And somehow, twenty years passed.`}),(0,V.jsxs)(Z.div,{initial:{opacity:0,y:15},animate:{opacity:1,y:0},transition:{duration:1.5,delay:3.8,ease:`easeOut`},className:`\r
+                  mt-7\r
+                  text-sm\r
+                  leading-7\r
+                  text-[#f3eadb]/80\r
+                  sm:text-[15px]\r
+                  sm:leading-8\r
+                `,children:[(0,V.jsxs)(`p`,{children:[`So before we celebrate the woman you've become,`,(0,V.jsx)(`br`,{className:`hidden sm:block`}),`let's go back and meet the little girl`,(0,V.jsx)(`br`,{className:`hidden sm:block`}),`who started it all.`]}),(0,V.jsxs)(`p`,{className:`\r
+                    mt-5\r
+                    font-light\r
+                    tracking-[0.08em]\r
+                    text-[#f3eadb]\r
+                    drop-shadow-[0_0_15px_rgba(243,234,219,0.15)]\r
+                  `,children:[`This is her story.`,(0,V.jsx)(`br`,{}),`This is your story. ❤️`]})]})]})]})}),(0,V.jsx)(Pc,{children:r&&(0,V.jsxs)(Z.div,{initial:{opacity:0},animate:{opacity:[.25,1,.25]},transition:{duration:1.8,repeat:1/0,ease:`easeInOut`,delay:5},className:`\r
               absolute\r
+              bottom-8\r
               left-1/2\r
-              top-1\r
-              h-1\r
-              w-1\r
+              z-10\r
+              flex\r
               -translate-x-1/2\r
-              rounded-full\r
-              bg-[#f3eadb]\r
-            `})}),(0,V.jsx)(`span`,{className:`\r
-            text-[9px]\r
-            uppercase\r
-            tracking-[0.4em]\r
-            text-[#f3eadb]/50\r
-          `,children:`Scroll`})]})]})}var xd={spring:{line:`#b97891`,glow:`#f2a9c0`},summer:{line:`#a98b52`,glow:`#dfc276`},autumn:{line:`#9c6240`,glow:`#d38a55`},winter:{line:`#71899f`,glow:`#a9c8df`},night:{line:`#78678f`,glow:`#b9a3d4`}};function Sd({season:e}){let t=(0,_.useRef)(null),{scrollYProgress:n}=sd({target:t,offset:[`start center`,`end center`]}),r=dd(hd(n,{stiffness:100,damping:25,mass:.4}),[0,1],[`0%`,`100%`]),i=xd[e];return(0,V.jsxs)(`div`,{ref:t,className:`\r
+              flex-col\r
+              items-center\r
+              gap-2\r
+            `,children:[(0,V.jsx)(`div`,{className:`\r
+                relative\r
+                h-9\r
+                w-5\r
+                rounded-full\r
+                border\r
+                border-[#f3eadb]/60\r
+              `,children:(0,V.jsx)(Z.div,{animate:{y:[3,14,3]},transition:{duration:1.5,repeat:1/0,ease:`easeInOut`},className:`\r
+                  absolute\r
+                  left-1/2\r
+                  top-1\r
+                  h-1\r
+                  w-1\r
+                  -translate-x-1/2\r
+                  rounded-full\r
+                  bg-[#f3eadb]\r
+                `})}),(0,V.jsx)(`span`,{className:`\r
+                text-[9px]\r
+                uppercase\r
+                tracking-[0.4em]\r
+                text-[#f3eadb]/60\r
+              `,children:`Scroll`})]})}),(0,V.jsx)(Pc,{children:t&&(0,V.jsx)(Z.div,{initial:{opacity:0},animate:{opacity:1},exit:{opacity:0},transition:{duration:.5},className:`\r
+              fixed\r
+              inset-0\r
+              z-[200]\r
+              flex\r
+              items-center\r
+              justify-center\r
+              bg-black/90\r
+              px-5\r
+              backdrop-blur-md\r
+            `,children:(0,V.jsxs)(Z.div,{initial:{opacity:0,y:35,scale:.9},animate:{opacity:1,y:0,scale:1},transition:{duration:.7,ease:[.22,1,.36,1]},className:`\r
+                relative\r
+                w-full\r
+                max-w-md\r
+                overflow-hidden\r
+                rounded-[2rem]\r
+                border\r
+                border-[#f3eadb]/15\r
+                bg-[#050505]\r
+                px-7\r
+                py-9\r
+                text-center\r
+                shadow-[0_0_100px_rgba(185,163,212,0.15)]\r
+                sm:px-10\r
+                sm:py-11\r
+              `,children:[(0,V.jsx)(`div`,{className:`\r
+                  pointer-events-none\r
+                  absolute\r
+                  left-1/2\r
+                  top-0\r
+                  h-32\r
+                  w-32\r
+                  -translate-x-1/2\r
+                  -translate-y-1/2\r
+                  rounded-full\r
+                  bg-[#b9a3d4]/10\r
+                  blur-3xl\r
+                `}),(0,V.jsx)(Z.div,{initial:{opacity:0,y:-10},animate:{opacity:1,y:0},transition:{delay:.15,duration:.7},className:`\r
+                  relative\r
+                  text-[9px]\r
+                  uppercase\r
+                  tracking-[0.55em]\r
+                  text-[#b9a3d4]/75\r
+                `,children:`Before you begin`}),(0,V.jsx)(Z.h2,{initial:{opacity:0,y:10},animate:{opacity:1,y:0},transition:{delay:.25,duration:.7},className:`\r
+                  relative\r
+                  mt-4\r
+                  text-2xl\r
+                  font-light\r
+                  tracking-[0.06em]\r
+                  text-[#f3eadb]\r
+                  sm:text-3xl\r
+                `,children:`Take your time.`}),(0,V.jsx)(`div`,{className:`\r
+                  mx-auto\r
+                  mt-5\r
+                  h-px\r
+                  w-16\r
+                  bg-gradient-to-r\r
+                  from-transparent\r
+                  via-[#b9a3d4]/50\r
+                  to-transparent\r
+                `}),(0,V.jsxs)(Z.div,{initial:{opacity:0},animate:{opacity:1},transition:{delay:.45,duration:.8},className:`\r
+                  relative\r
+                  mt-7\r
+                  space-y-5\r
+                  text-sm\r
+                  leading-7\r
+                  text-[#f3eadb]/70\r
+                  sm:text-[15px]\r
+                `,children:[(0,V.jsx)(`p`,{children:`🎧 Use headphones for the best experience.`}),(0,V.jsx)(`p`,{children:`🌙 Scroll slowly and let the story unfold.`}),(0,V.jsxs)(`p`,{children:[`📖 Don't rush.`,(0,V.jsx)(`br`,{}),`Some things are meant to be noticed.`]}),(0,V.jsx)(`p`,{children:`✨ Don't miss the little details along the way.`})]}),(0,V.jsxs)(Z.p,{initial:{opacity:0,y:10},animate:{opacity:1,y:0},transition:{delay:.8,duration:.8},className:`\r
+                  relative\r
+                  mt-7\r
+                  text-sm\r
+                  font-light\r
+                  leading-7\r
+                  tracking-[0.04em]\r
+                  text-[#f3eadb]/90\r
+                `,children:[`There's no need to hurry.`,(0,V.jsx)(`br`,{}),`Just enjoy the journey. ❤️`]}),(0,V.jsx)(Z.button,{initial:{opacity:0,y:10},animate:{opacity:1,y:0},transition:{delay:1,duration:.8},type:`button`,onClick:()=>{n(!1),setTimeout(()=>{i(!0)},350)},whileHover:{scale:1.04},whileTap:{scale:.96},className:`\r
+                  relative\r
+                  mt-8\r
+                  w-full\r
+                  rounded-full\r
+                  border\r
+                  border-[#b9a3d4]/40\r
+                  bg-[#b9a3d4]/10\r
+                  px-7\r
+                  py-4\r
+                  text-[10px]\r
+                  uppercase\r
+                  tracking-[0.35em]\r
+                  text-[#f3eadb]\r
+                  shadow-[0_0_30px_rgba(185,163,212,0.08)]\r
+                  transition\r
+                  hover:border-[#b9a3d4]/70\r
+                  hover:bg-[#b9a3d4]/20\r
+                `,children:`I'm ready ✦`}),(0,V.jsx)(`div`,{className:`\r
+                  mt-4\r
+                  text-[8px]\r
+                  uppercase\r
+                  tracking-[0.25em]\r
+                  text-white/20\r
+                `,children:`Best experienced with sound`})]})})})]})}var xd={spring:{line:`#b97891`,glow:`#f2a9c0`},summer:{line:`#a98b52`,glow:`#dfc276`},autumn:{line:`#9c6240`,glow:`#d38a55`},winter:{line:`#71899f`,glow:`#a9c8df`},night:{line:`#78678f`,glow:`#b9a3d4`}};function Sd({season:e}){let t=(0,_.useRef)(null),{scrollYProgress:n}=sd({target:t,offset:[`start center`,`end center`]}),r=dd(hd(n,{stiffness:100,damping:25,mass:.4}),[0,1],[`0%`,`100%`]),i=xd[e];return(0,V.jsxs)(`div`,{ref:t,className:`\r
         pointer-events-none\r
         absolute\r
         left-1/2\r
@@ -651,30 +809,30 @@ Error generating stack: `+e.message+`
           left-0\r
           top-0\r
           cursor-pointer\r
-        `,children:(0,V.jsxs)(Z.div,{animate:{y:[0,-14,-4,12,5,-10,0],rotate:[-3,2,-1,3,-2,2,-3],x:[0,4,-3,5,-4,3,0]},transition:{duration:6.5,repeat:1/0,ease:`easeInOut`,times:[0,.16,.32,.5,.67,.84,1]},children:[(0,V.jsx)(Z.div,{animate:{opacity:[.65,1,.65],scale:[.96,1.04,.96],y:[0,-3,0]},transition:{duration:1.6,repeat:1/0,ease:`easeInOut`},className:`\r
+        `,children:(0,V.jsxs)(Z.div,{animate:{y:[0,-14,-4,12,5,-10,0],rotate:[-3,2,-1,3,-2,2,-3],x:[0,4,-3,5,-4,3,0]},transition:{duration:6.5,repeat:1/0,ease:`easeInOut`,times:[0,.16,.32,.5,.67,.84,1]},children:[(0,V.jsx)(Z.div,{animate:{opacity:[.7,1,.7],scale:[.98,1.06,.98],y:[0,-4,0]},transition:{duration:1.6,repeat:1/0,ease:`easeInOut`},className:`\r
               absolute\r
-              -top-16\r
+              -top-20\r
               left-1/2\r
               -translate-x-1/2\r
               whitespace-nowrap\r
               rounded-full\r
               border\r
-              border-[#f3eadb]/20\r
-              bg-black/55\r
-              px-4\r
-              py-2\r
-              text-xs\r
-              font-medium\r
+              border-[#f3eadb]/25\r
+              bg-black/65\r
+              px-7\r
+              py-3\r
+              text-sm\r
+              font-semibold\r
               uppercase\r
-              tracking-[0.28em]\r
+              tracking-[0.3em]\r
               text-[#f3eadb]\r
-              shadow-[0_0_20px_rgba(185,163,212,0.18)]\r
+              shadow-[0_0_30px_rgba(185,163,212,0.25)]\r
               backdrop-blur-md\r
-            `,children:`Grab me 🎈`}),(0,V.jsxs)(Z.button,{type:`button`,onClick:e,whileHover:{scale:1.12},whileTap:{scale:.86},className:`\r
+            `,children:`CLICK ME 🎈`}),(0,V.jsxs)(Z.button,{type:`button`,onClick:e,whileHover:{scale:1.12},whileTap:{scale:.86},className:`\r
               relative\r
               flex\r
-              h-20\r
-              w-16\r
+              h-28\r
+              w-24\r
               items-center\r
               justify-center\r
               rounded-[50%]\r
@@ -684,27 +842,27 @@ Error generating stack: `+e.message+`
               from-[#f3c5d3]/95\r
               via-[#b9a3d4]/85\r
               to-[#78678f]/95\r
-              shadow-[0_0_35px_rgba(185,163,212,0.4)]\r
+              shadow-[0_0_45px_rgba(185,163,212,0.5)]\r
             `,children:[(0,V.jsx)(`span`,{className:`\r
                 absolute\r
-                left-3\r
-                top-3\r
-                h-5\r
-                w-3\r
+                left-4\r
+                top-4\r
+                h-7\r
+                w-4\r
                 rounded-full\r
                 bg-white/60\r
                 blur-[1px]\r
               `}),(0,V.jsx)(Z.span,{animate:{opacity:[.25,.65,.25],scale:[.9,1.12,.9]},transition:{duration:2,repeat:1/0,ease:`easeInOut`},className:`\r
                 pointer-events-none\r
                 absolute\r
-                -inset-3\r
+                -inset-4\r
                 rounded-full\r
                 bg-[#b9a3d4]/20\r
                 blur-xl\r
               `}),(0,V.jsx)(`span`,{className:`\r
                 relative\r
                 z-10\r
-                text-xl\r
+                text-2xl\r
               `,children:`✨`})]}),(0,V.jsx)(Z.div,{animate:{rotate:[-5,4,-2,5,-4,3,-5],scaleX:[1,.96,1.03,.97,1.02,.98,1]},transition:{duration:4.8,repeat:1/0,ease:`easeInOut`},className:`\r
               mx-auto\r
               h-28\r
@@ -725,7 +883,7 @@ Error generating stack: `+e.message+`
         bottom-[12%]\r
         left-1/2\r
         z-[70]\r
-        w-[min(88vw,380px)]\r
+        w-[min(92vw,520px)]\r
         -translate-x-1/2\r
       `,children:(0,V.jsxs)(`div`,{className:`\r
           relative\r
@@ -734,19 +892,22 @@ Error generating stack: `+e.message+`
           border\r
           border-[#b9a3d4]/25\r
           bg-black/75\r
-          px-6\r
-          pb-6\r
-          pt-8\r
+          px-8\r
+          pb-8\r
+          pt-10\r
+          md:px-10\r
+          md:pb-10\r
+          md:pt-10\r
           text-center\r
-          shadow-[0_0_70px_rgba(185,163,212,0.16)]\r
+          shadow-[0_0_90px_rgba(185,163,212,0.18)]\r
           backdrop-blur-xl\r
         `,children:[(0,V.jsx)(`button`,{type:`button`,onClick:t,className:`\r
             absolute\r
             right-4\r
             top-4\r
             flex\r
-            h-7\r
-            w-7\r
+            h-8\r
+            w-8\r
             items-center\r
             justify-center\r
             rounded-full\r
@@ -763,37 +924,40 @@ Error generating stack: `+e.message+`
             text-[#b9a3d4]/70\r
           `,children:`A little message for you`}),(0,V.jsx)(`div`,{className:`\r
             mt-4\r
-            text-xl\r
+            text-2xl\r
             font-light\r
             tracking-[0.12em]\r
             text-[#f3eadb]\r
+            md:text-3xl\r
           `,children:`For your 20th birthday ❤️`}),(0,V.jsx)(`div`,{className:`\r
             mx-auto\r
             mt-5\r
             h-px\r
-            w-20\r
+            w-24\r
             bg-gradient-to-r\r
             from-transparent\r
             via-[#b9a3d4]/50\r
             to-transparent\r
           `}),(0,V.jsxs)(`p`,{className:`\r
+            mt-6\r
+            text-base\r
+            leading-8\r
+            text-[#d3c5e5]/70\r
+            md:text-lg\r
+          `,children:[`No matter where life takes you,`,(0,V.jsx)(`br`,{}),`no matter what happens along the way,`,(0,V.jsx)(`br`,{}),`I'll always be by your side. ❤️`]}),(0,V.jsx)(`p`,{className:`\r
             mt-5\r
             text-sm\r
-            leading-7\r
-            text-[#d3c5e5]/70\r
-          `,children:[`No matter where life takes you,`,(0,V.jsx)(`br`,{}),`no matter what happens along the way,`,(0,V.jsx)(`br`,{}),`I'll always be by your side. ❤️`]}),(0,V.jsx)(`p`,{className:`\r
-            mt-4\r
-            text-xs\r
-            leading-5\r
+            leading-6\r
             text-[#d3c5e5]/40\r
+            md:text-base\r
           `,children:`I hope the years ahead bring you more reasons to smile, more dreams to chase, and more moments worth remembering.`}),(0,V.jsx)(Z.button,{type:`button`,onClick:e,whileHover:{scale:1.04},whileTap:{scale:.96},className:`\r
-            mt-6\r
+            mt-7\r
             rounded-full\r
             border\r
             border-[#b9a3d4]/35\r
             bg-[#b9a3d4]/10\r
-            px-7\r
-            py-3\r
+            px-8\r
+            py-4\r
             text-[10px]\r
             uppercase\r
             tracking-[0.3em]\r
@@ -802,43 +966,52 @@ Error generating stack: `+e.message+`
             transition\r
             hover:border-[#b9a3d4]/70\r
             hover:bg-[#b9a3d4]/20\r
-          `,children:`✦ Make a Wish ✦`})]})})}function Jd({onClose:e}){let[t,n]=(0,_.useState)(``),[r,i]=(0,_.useState)(!1);return(0,V.jsx)(Z.div,{initial:{opacity:0,y:50,scale:.85},animate:{opacity:1,y:0,scale:1},exit:{opacity:0,y:40,scale:.9},className:`\r
+          `,children:`✦ Make a Wish ✦`})]})})}function Jd({onClose:e}){let[t,n]=(0,_.useState)(``),[r,i]=(0,_.useState)(!1),[a,o]=(0,_.useState)(!1),[s,c]=(0,_.useState)(``);return(0,V.jsx)(Z.div,{initial:{opacity:0,y:50,scale:.85},animate:{opacity:1,y:0,scale:1},exit:{opacity:0,y:40,scale:.9},className:`\r
         absolute\r
-        bottom-[12%]\r
+        bottom-[10%]\r
         left-1/2\r
         z-[75]\r
-        w-[min(88vw,380px)]\r
+        w-[min(92vw,520px)]\r
         -translate-x-1/2\r
       `,children:(0,V.jsx)(`div`,{className:`\r
           rounded-[2rem]\r
           border\r
           border-[#b9a3d4]/25\r
           bg-black/80\r
-          p-6\r
+          p-8\r
           text-center\r
-          shadow-[0_0_70px_rgba(185,163,212,0.16)]\r
+          shadow-[0_0_90px_rgba(185,163,212,0.18)]\r
           backdrop-blur-xl\r
+          md:p-10\r
         `,children:r?(0,V.jsxs)(Z.div,{initial:{opacity:0},animate:{opacity:1},className:`\r
-              py-5\r
-            `,children:[(0,V.jsx)(`div`,{className:`\r
-                text-2xl\r
+              py-7\r
+            `,children:[(0,V.jsx)(Z.div,{initial:{scale:.5,opacity:0},animate:{scale:1,opacity:1},transition:{duration:.7,ease:[.22,1,.36,1]},className:`\r
+                text-4xl\r
               `,children:`✨`}),(0,V.jsx)(`div`,{className:`\r
-                mt-3\r
-                text-xl\r
-                font-light\r
-                text-[#f3eadb]\r
-              `,children:`Your wish has been heard.`}),(0,V.jsxs)(`p`,{className:`\r
-                mt-3\r
-                text-xs\r
-                leading-6\r
-                text-[#d3c5e5]/55\r
-              `,children:[`Maybe some wishes take a little time to find their way to us.`,(0,V.jsx)(`br`,{}),`Until then, keep believing. 🌙`]}),(0,V.jsx)(`button`,{type:`button`,onClick:e,className:`\r
                 mt-5\r
+                text-2xl\r
+                font-light\r
+                tracking-[0.08em]\r
+                text-[#f3eadb]\r
+                md:text-3xl\r
+              `,children:`Your wish has been heard.`}),(0,V.jsxs)(`p`,{className:`\r
+                mx-auto\r
+                mt-5\r
+                max-w-sm\r
+                text-sm\r
+                leading-7\r
+                text-[#d3c5e5]/65\r
+                md:text-base\r
+              `,children:[`Not today...`,(0,V.jsx)(`br`,{}),`but someday,`,(0,V.jsx)(`br`,{}),`definitely,`,(0,V.jsx)(`br`,{}),`your wish will come true. 🌙`]}),(0,V.jsx)(`div`,{className:`\r
+                mt-5\r
+                text-xl\r
+              `,children:`🌠 ✨ 🌙`}),(0,V.jsx)(`button`,{type:`button`,onClick:e,className:`\r
+                mt-6\r
                 rounded-full\r
                 border\r
                 border-[#b9a3d4]/30\r
-                px-6\r
-                py-2\r
+                px-7\r
+                py-3\r
                 text-[9px]\r
                 uppercase\r
                 tracking-[0.25em]\r
@@ -850,25 +1023,26 @@ Error generating stack: `+e.message+`
                 tracking-[0.5em]\r
                 text-[#b9a3d4]/70\r
               `,children:`One little wish`}),(0,V.jsx)(`div`,{className:`\r
-                mt-3\r
-                text-xl\r
+                mt-4\r
+                text-2xl\r
                 font-light\r
                 text-[#f3eadb]\r
+                md:text-3xl\r
               `,children:`What do you wish for? ✨`}),(0,V.jsx)(`p`,{className:`\r
-                mt-2\r
-                text-xs\r
-                leading-5\r
+                mt-3\r
+                text-sm\r
+                leading-6\r
                 text-[#d3c5e5]/45\r
-              `,children:`Write something you'd love to see come true.`}),(0,V.jsx)(`textarea`,{value:t,onChange:e=>n(e.target.value),rows:4,maxLength:300,placeholder:`Write your wish here...`,className:`\r
-                mt-5\r
+              `,children:`Write something you'd love to see come true.`}),(0,V.jsx)(`textarea`,{value:t,onChange:e=>n(e.target.value),rows:5,maxLength:300,placeholder:`Write your wish here...`,className:`\r
+                mt-6\r
                 w-full\r
                 resize-none\r
                 rounded-2xl\r
                 border\r
                 border-[#b9a3d4]/20\r
                 bg-white/[0.03]\r
-                px-4\r
-                py-3\r
+                px-5\r
+                py-4\r
                 text-sm\r
                 leading-6\r
                 text-[#f3eadb]\r
@@ -880,27 +1054,35 @@ Error generating stack: `+e.message+`
                 text-right\r
                 text-[9px]\r
                 text-white/20\r
-              `,children:[t.length,`/300`]}),(0,V.jsx)(`button`,{type:`button`,onClick:()=>{t.trim()&&i(!0)},className:`\r
-                mt-3\r
+              `,children:[t.length,`/300`]}),s&&(0,V.jsx)(`p`,{className:`\r
+                  mt-4\r
+                  text-xs\r
+                  leading-5\r
+                  text-[#f3c5d3]/80\r
+                `,children:s}),(0,V.jsx)(`button`,{type:`button`,onClick:async()=>{if(!(!t.trim()||a)){o(!0),c(``);try{let e=await fetch(`https://moviebackend-m93c.onrender.com/api/wishes`,{method:`POST`,headers:{"Content-Type":`application/json`},body:JSON.stringify({wish:t.trim()})}),n=await e.json();if(!e.ok||!n.success)throw Error(n.message||`Failed to send wish.`);i(!0)}catch(e){console.error(`Wish submission failed:`,e),c(`Couldn't send your wish right now. Please try again. 🌙`)}finally{o(!1)}}},disabled:a,className:`\r
+                mt-4\r
                 w-full\r
                 rounded-xl\r
                 border\r
                 border-[#b9a3d4]/30\r
                 bg-[#b9a3d4]/10\r
-                py-3\r
+                py-4\r
                 text-[10px]\r
                 uppercase\r
                 tracking-[0.3em]\r
                 text-[#f3eadb]\r
                 transition\r
                 hover:bg-[#b9a3d4]/20\r
-              `,children:`Send My Wish ✨`}),(0,V.jsx)(`button`,{type:`button`,onClick:e,className:`\r
-                mt-3\r
+                disabled:cursor-not-allowed\r
+                disabled:opacity-50\r
+              `,children:a?`Sending Your Wish... ✨`:`Send My Wish ✨`}),(0,V.jsx)(`button`,{type:`button`,onClick:e,disabled:a,className:`\r
+                mt-4\r
                 text-[9px]\r
                 uppercase\r
                 tracking-[0.25em]\r
                 text-white/25\r
                 hover:text-white/50\r
+                disabled:opacity-30\r
               `,children:`Back`})]})})})}function Yd(){let e=(0,_.useRef)(null),[t,n]=(0,_.useState)(!1),[r,i]=(0,_.useState)(0),[a,o]=(0,_.useState)(!1),[s,c]=(0,_.useState)(!1);(0,_.useEffect)(()=>{let t=e.current;if(!t)return;let r=new IntersectionObserver(([e])=>{e.isIntersecting&&e.intersectionRatio>.25?(n(!0),i(e=>e+1),o(!1),c(!1)):n(!1)},{threshold:[0,.25,.5]});return r.observe(t),()=>{r.disconnect()}},[]),(0,_.useEffect)(()=>{if(!t)return;let e=new Audio(zd);return e.volume=.65,e.currentTime=0,e.play().catch(()=>{console.log(`Browser blocked automatic cracker sound.`)}),()=>{e.pause(),e.currentTime=0}},[r,t]);let l=()=>{o(!0)},u=[{left:`7%`,top:`25%`,delay:.1,color:Bd[0],scale:1.1},{left:`23%`,top:`14%`,delay:.5,color:Bd[1],scale:1.35},{left:`43%`,top:`23%`,delay:.9,color:Bd[2],scale:1.15},{left:`65%`,top:`13%`,delay:1.3,color:Bd[3],scale:1.4},{left:`88%`,top:`25%`,delay:1.7,color:Bd[4],scale:1.1},{left:`12%`,top:`52%`,delay:2.1,color:Bd[2],scale:.9},{left:`82%`,top:`49%`,delay:2.5,color:Bd[1],scale:1}];return(0,V.jsxs)(`section`,{ref:e,className:`\r
         relative\r
         isolate\r
@@ -955,7 +1137,7 @@ Error generating stack: `+e.message+`
           bg-gradient-to-t\r
           from-black\r
           to-transparent\r
-        `})]})}var Xd=[{year:2006,season:`spring`,memories:[{image:`/decimalMovie/assets/2006-T7C-xN1M.png`,title:`The beginning`,text:`Before there were memories to remember, there was simply a little girl discovering the world.`}]},{year:2007,season:`spring`,memories:[{image:`/decimalMovie/assets/2007-DXMVlmja.png`,title:`First little steps`,text:`One year later, the world was no longer something to watch. It was something to walk into.`}]},{year:2008,season:`spring`,memories:[{image:`/decimalMovie/assets/2008-5_BOwBjs.png`,title:`A little world of her own`,text:`At two, the world could still fit inside a room filled with toys, tiny discoveries, and things only a child could find fascinating.`}]},{year:2009,season:`spring`,memories:[{image:`/decimalMovie/assets/2009-DgsA9NyA.png`,title:`The world gets bigger`,text:`Then came nursery. A tiny backpack, unfamiliar faces, and a whole new little world waiting beyond home.`}]},{year:2010,season:`spring`,memories:[{image:`/decimalMovie/assets/2010-D6acpa_g.png`,title:`A little more grown`,text:`Somewhere along the way, that tiny girl was slowly becoming a child with a world of her own.`}]},{year:2011,season:`summer`,memories:[{image:`/decimalMovie/assets/2011-CZKGKh4b.png`,title:`The little troublemaker`,text:`I have a feeling you weren't always the easiest child to keep an eye on. Maybe you had a talent for turning perfectly normal afternoons into tiny disasters.`}]},{year:2014,season:`summer`,memories:[{image:`/decimalMovie/assets/2014-CD4wb-ym.png`,title:`Little adventures`,text:`The world was no longer just something to look at. It was something to explore, run through, climb around, and turn into an adventure.`}]},{year:2016,season:`autumn`,memories:[{image:`/decimalMovie/assets/2016-CGxh8RE2.png`,title:`Growing up`,text:`Somewhere around here, childhood started becoming something a little different. The world was getting bigger, and so was she.`}]},{year:2018,season:`autumn`,memories:[{image:`/decimalMovie/assets/2018-_I14FFGZ.png`,title:`Finding herself`,text:`The little girl was slowly becoming someone with her own interests, her own thoughts, and a personality that was beginning to shine through.`}]},{year:2019,season:`autumn`,memories:[{image:`/decimalMovie/assets/2019-DfW_aVOn.png`,title:`Becoming herself`,text:`Friends, laughter, school days, ordinary afternoons. The little moments were quietly becoming part of the person she would grow into.`}]},{year:2020,season:`autumn`,memories:[{image:`/decimalMovie/assets/2020-JbEaybz5.png`,title:`A strange year`,text:`The world suddenly became quieter. Days moved differently, and perhaps there was more time to sit by a window, think, read, and simply watch the world outside.`}]},{year:2021,season:`winter`,memories:[{image:`/decimalMovie/assets/2021-DVgLfutw.png`,title:`Looking ahead`,text:`The future was beginning to feel closer now. There were dreams to chase, questions to answer, and a whole life still waiting ahead.`}]},{year:2022,season:`winter`,memories:[{image:`/decimalMovie/assets/2022-DmkJW43g.png`,title:`The first big challenge`,text:`Tenth boards were approaching. Books, notes, practice papers, and the pressure of figuring out what came next.`}]},{year:2023,season:`winter`,memories:[{image:`/decimalMovie/assets/2023-DnJROdjG.png`,title:`A new direction`,text:`Eleventh began, and with it came a new kind of ambition. JEE, engineering, and a future that was slowly taking shape.`}]},{year:2024,season:`winter`,memories:[{image:`/decimalMovie/assets/2024-B_TwGWgr.png`,title:`The challenge`,text:`12th boards, JEE, MHT-CET, and the long road toward the future she was preparing to build.`},{image:`/decimalMovie/assets/2024_2-wfloejZT.png`,title:`A new beginning`,text:`And after all those exams, one door opened to a completely new chapter: YCCE.`}]},{year:2025,season:`night`,memories:[{image:`/decimalMovie/assets/2025-BmryEgEH.png`,title:`A new life`,text:`College was no longer something waiting in the future. It had finally become her everyday life.`},{image:`/decimalMovie/assets/2025_2-DymV9It7.png`,title:`The little moments`,text:`Between lectures, friendships, laughter, and the occasional phone hiding in the middle of class, a new world was forming.`},{image:`/decimalMovie/assets/2025_3-Gw3vNzFD.png`,title:`Building something of her own`,text:`The little girl who once discovered the world was now beginning to build things inside it.`}]},{year:2026,season:`night`,memories:[]}];function Zd(){let[e,t]=(0,_.useState)(2006),[n,r]=(0,_.useState)(`spring`),i=Math.max(0,e-2006);return(0,V.jsxs)(`main`,{className:`\r
+        `})]})}var Xd=[{year:2006,season:`spring`,memories:[{image:`/decimalMovie/assets/2006-T7C-xN1M.png`,title:`The beginning`,text:`Before there were memories to remember, there was simply a little girl discovering the world.`}]},{year:2007,season:`spring`,memories:[{image:`/decimalMovie/assets/2007-DXMVlmja.png`,title:`First little steps`,text:`One year later, the world was no longer something to watch. It was something to walk into.`}]},{year:2008,season:`spring`,memories:[{image:`/decimalMovie/assets/2008-5_BOwBjs.png`,title:`A little world of her own`,text:`At two, the world could still fit inside a room filled with toys, tiny discoveries, and things only a child could find fascinating.`}]},{year:2009,season:`spring`,memories:[{image:`/decimalMovie/assets/2009-DgsA9NyA.png`,title:`The world gets bigger`,text:`Then came nursery. A tiny backpack, unfamiliar faces, and a whole new little world waiting beyond home.`}]},{year:2010,season:`spring`,memories:[{image:`/decimalMovie/assets/2010-D6acpa_g.png`,title:`A little more grown`,text:`Wait... were you really this tiny once? 👀`}]},{year:2011,season:`summer`,memories:[{image:`/decimalMovie/assets/2011-CZKGKh4b.png`,title:`The little troublemaker`,text:`I have a feeling you weren't always the easiest child to keep an eye on. Maybe you had a talent for turning perfectly normal afternoons into tiny disasters.`}]},{year:2014,season:`summer`,memories:[{image:`/decimalMovie/assets/2014-CD4wb-ym.png`,title:`Little adventures`,text:`The world was no longer just something to look at. It was something to explore, run through, climb around, and turn into an adventure.`}]},{year:2016,season:`autumn`,memories:[{image:`/decimalMovie/assets/2016-CGxh8RE2.png`,title:`Growing up`,text:`Somewhere around here, childhood started becoming something a little different. The world was getting bigger, and so was she.`}]},{year:2018,season:`autumn`,memories:[{image:`/decimalMovie/assets/2018-_I14FFGZ.png`,title:`Finding herself`,text:`The little girl was slowly becoming someone with her own interests, her own thoughts, and a personality that was beginning to shine through.`}]},{year:2019,season:`autumn`,memories:[{image:`/decimalMovie/assets/2019-DfW_aVOn.png`,title:`Becoming herself`,text:`Friends, laughter, school days, ordinary afternoons. The little moments were quietly becoming part of the person she would grow into.`}]},{year:2020,season:`autumn`,memories:[{image:`/decimalMovie/assets/2020-JbEaybz5.png`,title:`A strange year`,text:`The world suddenly became quieter. Days moved differently, and perhaps there was more time to sit by a window, think, read, and simply watch the world outside.`}]},{year:2021,season:`winter`,memories:[{image:`/decimalMovie/assets/2021-DVgLfutw.png`,title:`Looking ahead`,text:`The future was beginning to feel closer now. There were dreams to chase, questions to answer, and a whole life still waiting ahead.`}]},{year:2022,season:`winter`,memories:[{image:`/decimalMovie/assets/2022-DmkJW43g.png`,title:`The first big challenge`,text:`Tenth boards were approaching. Books, notes, practice papers, and the pressure of figuring out what came next.`}]},{year:2023,season:`winter`,memories:[{image:`/decimalMovie/assets/2023-DnJROdjG.png`,title:`A new direction`,text:`Eleventh began, and with it came a new kind of ambition. JEE, engineering, and a future that was slowly taking shape.`}]},{year:2024,season:`winter`,memories:[{image:`/decimalMovie/assets/2024-B_TwGWgr.png`,title:`The challenge`,text:`12th boards, JEE, MHT-CET, and the long road toward the future she was preparing to build.`},{image:`/decimalMovie/assets/2024_2-wfloejZT.png`,title:`A new beginning`,text:`And after all those exams, one door opened to a completely new chapter: YCCE.`}]},{year:2025,season:`night`,memories:[{image:`/decimalMovie/assets/2025-BmryEgEH.png`,title:`A new life`,text:`College was no longer something waiting in the future. It had finally become her everyday life.`},{image:`/decimalMovie/assets/2025_2-DymV9It7.png`,title:`The little moments`,text:`Between lectures, friendships, laughter, and the occasional phone hiding in the middle of class, a new world was forming.`},{image:`/decimalMovie/assets/2025_3-Gw3vNzFD.png`,title:`Building something of her own`,text:`The little girl who once discovered the world was now beginning to build things inside it.`}]},{year:2026,season:`night`,memories:[]}];function Zd(){let[e,t]=(0,_.useState)(2006),[n,r]=(0,_.useState)(`spring`),i=Math.max(0,e-2006);return(0,V.jsxs)(`main`,{className:`\r
         relative\r
         min-h-screen\r
         overflow-hidden\r
