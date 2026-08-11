@@ -144,7 +144,7 @@ const YEARS = [
         title: "A little more grown",
 
         text:
-          "Somewhere along the way, that tiny girl was slowly becoming a child with a world of her own.",
+          "Wait... were you really this tiny once? 👀",
       },
     ],
   },

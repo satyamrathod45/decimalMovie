@@ -58,6 +58,7 @@ function Firework({
         top,
       }}
     >
+
       {/* Central flash */}
 
       <motion.div
@@ -189,6 +190,7 @@ function RocketLetter({
         `,
       }}
     >
+
       {/* Rocket trail */}
 
       <motion.span
@@ -357,6 +359,7 @@ function MilkyWay() {
         overflow-hidden
       "
     >
+
       {/* Milky Way cloud */}
 
       <motion.div
@@ -481,6 +484,7 @@ function BirthdayCake() {
         sm:w-48
       "
     >
+
       {/* Cake glow */}
 
       <motion.div
@@ -727,10 +731,6 @@ function WishBalloon({ onGrab }) {
 
         {/* =================================================
             NATURAL WIND MOTION
-
-            This layer creates the small floating motion
-            while the main layer carries the balloon across
-            the screen.
         ================================================= */}
 
         <motion.div
@@ -786,26 +786,26 @@ function WishBalloon({ onGrab }) {
         >
 
           {/* =================================================
-              GRAB ME LABEL
+              CLICK ME LABEL
           ================================================= */}
 
           <motion.div
             animate={{
               opacity: [
-                0.65,
+                0.7,
                 1,
-                0.65,
+                0.7,
               ],
 
               scale: [
-                0.96,
-                1.04,
-                0.96,
+                0.98,
+                1.06,
+                0.98,
               ],
 
               y: [
                 0,
-                -3,
+                -4,
                 0,
               ],
             }}
@@ -820,26 +820,26 @@ function WishBalloon({ onGrab }) {
 
             className="
               absolute
-              -top-16
+              -top-20
               left-1/2
               -translate-x-1/2
               whitespace-nowrap
               rounded-full
               border
-              border-[#f3eadb]/20
-              bg-black/55
-              px-4
-              py-2
-              text-xs
-              font-medium
+              border-[#f3eadb]/25
+              bg-black/65
+              px-7
+              py-3
+              text-sm
+              font-semibold
               uppercase
-              tracking-[0.28em]
+              tracking-[0.3em]
               text-[#f3eadb]
-              shadow-[0_0_20px_rgba(185,163,212,0.18)]
+              shadow-[0_0_30px_rgba(185,163,212,0.25)]
               backdrop-blur-md
             "
           >
-            Grab me 🎈
+            CLICK ME 🎈
           </motion.div>
 
 
@@ -862,8 +862,8 @@ function WishBalloon({ onGrab }) {
             className="
               relative
               flex
-              h-20
-              w-16
+              h-28
+              w-24
               items-center
               justify-center
               rounded-[50%]
@@ -873,7 +873,7 @@ function WishBalloon({ onGrab }) {
               from-[#f3c5d3]/95
               via-[#b9a3d4]/85
               to-[#78678f]/95
-              shadow-[0_0_35px_rgba(185,163,212,0.4)]
+              shadow-[0_0_45px_rgba(185,163,212,0.5)]
             "
           >
 
@@ -882,10 +882,10 @@ function WishBalloon({ onGrab }) {
             <span
               className="
                 absolute
-                left-3
-                top-3
-                h-5
-                w-3
+                left-4
+                top-4
+                h-7
+                w-4
                 rounded-full
                 bg-white/60
                 blur-[1px]
@@ -921,7 +921,7 @@ function WishBalloon({ onGrab }) {
               className="
                 pointer-events-none
                 absolute
-                -inset-3
+                -inset-4
                 rounded-full
                 bg-[#b9a3d4]/20
                 blur-xl
@@ -933,7 +933,7 @@ function WishBalloon({ onGrab }) {
               className="
                 relative
                 z-10
-                text-xl
+                text-2xl
               "
             >
               ✨
@@ -944,9 +944,6 @@ function WishBalloon({ onGrab }) {
 
           {/* =================================================
               BALLOON STRING
-
-              Separate movement makes it feel like the
-              string is being pulled by the wind.
           ================================================= */}
 
           <motion.div
@@ -1050,10 +1047,11 @@ function GreetingCard({
         bottom-[12%]
         left-1/2
         z-[70]
-        w-[min(88vw,380px)]
+        w-[min(92vw,520px)]
         -translate-x-1/2
       "
     >
+
       <div
         className="
           relative
@@ -1062,14 +1060,18 @@ function GreetingCard({
           border
           border-[#b9a3d4]/25
           bg-black/75
-          px-6
-          pb-6
-          pt-8
+          px-8
+          pb-8
+          pt-10
+          md:px-10
+          md:pb-10
+          md:pt-10
           text-center
-          shadow-[0_0_70px_rgba(185,163,212,0.16)]
+          shadow-[0_0_90px_rgba(185,163,212,0.18)]
           backdrop-blur-xl
         "
       >
+
         {/* Close */}
 
         <button
@@ -1080,8 +1082,8 @@ function GreetingCard({
             right-4
             top-4
             flex
-            h-7
-            w-7
+            h-8
+            w-8
             items-center
             justify-center
             rounded-full
@@ -1114,10 +1116,11 @@ function GreetingCard({
         <div
           className="
             mt-4
-            text-xl
+            text-2xl
             font-light
             tracking-[0.12em]
             text-[#f3eadb]
+            md:text-3xl
           "
         >
           For your 20th birthday ❤️
@@ -1129,7 +1132,7 @@ function GreetingCard({
             mx-auto
             mt-5
             h-px
-            w-20
+            w-24
             bg-gradient-to-r
             from-transparent
             via-[#b9a3d4]/50
@@ -1142,10 +1145,11 @@ function GreetingCard({
 
         <p
           className="
-            mt-5
-            text-sm
-            leading-7
+            mt-6
+            text-base
+            leading-8
             text-[#d3c5e5]/70
+            md:text-lg
           "
         >
           No matter where life takes you,
@@ -1160,10 +1164,11 @@ function GreetingCard({
 
         <p
           className="
-            mt-4
-            text-xs
-            leading-5
+            mt-5
+            text-sm
+            leading-6
             text-[#d3c5e5]/40
+            md:text-base
           "
         >
           I hope the years ahead bring
@@ -1186,13 +1191,13 @@ function GreetingCard({
             scale: 0.96,
           }}
           className="
-            mt-6
+            mt-7
             rounded-full
             border
             border-[#b9a3d4]/35
             bg-[#b9a3d4]/10
-            px-7
-            py-3
+            px-8
+            py-4
             text-[10px]
             uppercase
             tracking-[0.3em]
@@ -1225,34 +1230,92 @@ function WishCard({
   const [sent, setSent] =
     useState(false);
 
+  const [sending, setSending] =
+    useState(false);
 
-  const handleSend = () => {
+  const [error, setError] =
+    useState("");
 
-    if (!wish.trim()) {
+
+  // ====================================================
+  // SEND WISH TO BACKEND
+  // ====================================================
+
+  const handleSend = async () => {
+
+    if (
+      !wish.trim() ||
+      sending
+    ) {
       return;
     }
 
 
-    /*
-      BACKEND CONNECTION
+    setSending(true);
 
-      When your backend is ready,
-      replace this section with:
+    setError("");
 
-      fetch("/api/wishes", {
-        method: "POST",
-        headers: {
-          "Content-Type":
-            "application/json",
-        },
-        body: JSON.stringify({
-          wish,
-        }),
-      });
 
-    */
+    try {
 
-    setSent(true);
+      const response =
+        await fetch(
+          "https://moviebackend-m93c.onrender.com/api/wishes",
+          {
+            method: "POST",
+
+            headers: {
+              "Content-Type":
+                "application/json",
+            },
+
+            body: JSON.stringify({
+              wish: wish.trim(),
+            }),
+          }
+        );
+
+
+      const data =
+        await response.json();
+
+
+      if (
+        !response.ok ||
+        !data.success
+      ) {
+
+        throw new Error(
+          data.message ||
+          "Failed to send wish."
+        );
+
+      }
+
+
+      // Only show success
+      // after backend confirms it.
+
+      setSent(true);
+
+    } catch (error) {
+
+      console.error(
+        "Wish submission failed:",
+        error
+      );
+
+
+      setError(
+        "Couldn't send your wish right now. Please try again. 🌙"
+      );
+
+    } finally {
+
+      setSending(false);
+
+    }
+
   };
 
 
@@ -1275,28 +1338,31 @@ function WishCard({
       }}
       className="
         absolute
-        bottom-[12%]
+        bottom-[10%]
         left-1/2
         z-[75]
-        w-[min(88vw,380px)]
+        w-[min(92vw,520px)]
         -translate-x-1/2
       "
     >
+
       <div
         className="
           rounded-[2rem]
           border
           border-[#b9a3d4]/25
           bg-black/80
-          p-6
+          p-8
           text-center
-          shadow-[0_0_70px_rgba(185,163,212,0.16)]
+          shadow-[0_0_90px_rgba(185,163,212,0.18)]
           backdrop-blur-xl
+          md:p-10
         "
       >
 
         {!sent ? (
           <>
+
             <div
               className="
                 text-[9px]
@@ -1311,10 +1377,11 @@ function WishCard({
 
             <div
               className="
-                mt-3
-                text-xl
+                mt-4
+                text-2xl
                 font-light
                 text-[#f3eadb]
+                md:text-3xl
               "
             >
               What do you wish for? ✨
@@ -1323,9 +1390,9 @@ function WishCard({
 
             <p
               className="
-                mt-2
-                text-xs
-                leading-5
+                mt-3
+                text-sm
+                leading-6
                 text-[#d3c5e5]/45
               "
             >
@@ -1341,19 +1408,19 @@ function WishCard({
                   event.target.value
                 )
               }
-              rows={4}
+              rows={5}
               maxLength={300}
               placeholder="Write your wish here..."
               className="
-                mt-5
+                mt-6
                 w-full
                 resize-none
                 rounded-2xl
                 border
                 border-[#b9a3d4]/20
                 bg-white/[0.03]
-                px-4
-                py-3
+                px-5
+                py-4
                 text-sm
                 leading-6
                 text-[#f3eadb]
@@ -1376,39 +1443,60 @@ function WishCard({
             </div>
 
 
+            {error && (
+              <p
+                className="
+                  mt-4
+                  text-xs
+                  leading-5
+                  text-[#f3c5d3]/80
+                "
+              >
+                {error}
+              </p>
+            )}
+
+
             <button
               type="button"
               onClick={handleSend}
+              disabled={sending}
               className="
-                mt-3
+                mt-4
                 w-full
                 rounded-xl
                 border
                 border-[#b9a3d4]/30
                 bg-[#b9a3d4]/10
-                py-3
+                py-4
                 text-[10px]
                 uppercase
                 tracking-[0.3em]
                 text-[#f3eadb]
                 transition
                 hover:bg-[#b9a3d4]/20
+                disabled:cursor-not-allowed
+                disabled:opacity-50
               "
             >
-              Send My Wish ✨
+              {sending
+                ? "Sending Your Wish... ✨"
+                : "Send My Wish ✨"}
             </button>
 
 
             <button
               type="button"
               onClick={onClose}
+              disabled={sending}
               className="
-                mt-3
+                mt-4
                 text-[9px]
                 uppercase
                 tracking-[0.25em]
                 text-white/25
                 hover:text-white/50
+                disabled:opacity-30
               "
             >
               Back
@@ -1425,25 +1513,39 @@ function WishCard({
               opacity: 1,
             }}
             className="
-              py-5
+              py-7
             "
           >
 
-            <div
+            <motion.div
+              initial={{
+                scale: 0.5,
+                opacity: 0,
+              }}
+              animate={{
+                scale: 1,
+                opacity: 1,
+              }}
+              transition={{
+                duration: 0.7,
+                ease: [0.22, 1, 0.36, 1],
+              }}
               className="
-                text-2xl
+                text-4xl
               "
             >
               ✨
-            </div>
+            </motion.div>
 
 
             <div
               className="
-                mt-3
-                text-xl
+                mt-5
+                text-2xl
                 font-light
+                tracking-[0.08em]
                 text-[#f3eadb]
+                md:text-3xl
               "
             >
               Your wish has been heard.
@@ -1452,30 +1554,45 @@ function WishCard({
 
             <p
               className="
-                mt-3
-                text-xs
-                leading-6
-                text-[#d3c5e5]/55
+                mx-auto
+                mt-5
+                max-w-sm
+                text-sm
+                leading-7
+                text-[#d3c5e5]/65
+                md:text-base
               "
             >
-              Maybe some wishes take a
-              little time to find their
-              way to us.
+              Not today...
               <br />
-              Until then, keep believing. 🌙
+              but someday,
+              <br />
+              definitely,
+              <br />
+              your wish will come true. 🌙
             </p>
+
+
+            <div
+              className="
+                mt-5
+                text-xl
+              "
+            >
+              🌠 ✨ 🌙
+            </div>
 
 
             <button
               type="button"
               onClick={onClose}
               className="
-                mt-5
+                mt-6
                 rounded-full
                 border
                 border-[#b9a3d4]/30
-                px-6
-                py-2
+                px-7
+                py-3
                 text-[9px]
                 uppercase
                 tracking-[0.25em]
@@ -1753,9 +1870,6 @@ export default function BirthdayCelebration() {
       {/* =================================================
           BIRTHDAY NAME
           Z-80
-
-          This is deliberately kept above the balloon
-          and greeting card.
       ================================================= */}
 
       {visible && (
@@ -1829,9 +1943,6 @@ export default function BirthdayCelebration() {
 
       {/* =================================================
           BALLOON
-
-          It stays in the lower-right area so it NEVER
-          covers HAPPY BIRTHDAY SHREYA.
       ================================================= */}
 
       {visible &&
